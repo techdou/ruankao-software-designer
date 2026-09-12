@@ -10,7 +10,7 @@
    "D": "硬件自动完成参考答案：D 解析： 历年缓存(Cache)相关试题：https://blog.csdn.net/shujuku____/article/details/115599506"
   },
   "answer": "D",
-  "analysis": "历年缓存(Cache)相关试题：https://blog.csdn.net/shujuku____/article/details/115599506",
+  "analysis": "Cache 与主存的地址映射由**硬件自动**完成（全相联/组相联由硬件查 Tag 比对），对程序员与操作系统均透明，不能靠软件管理，故选 D。",
   "figureMissing": false,
   "id": "r2020x-01",
   "chapter": "ch01",
@@ -316,7 +316,7 @@
    "D": "ab-cd+*参考答案：C解析：后缀式即依次遍历左子树、右子树、根，是abc-d*+历年后缀式(逆波兰式)相关试题：https://blog.csdn.net/shujuku____/article/details/115589563"
   },
   "answer": "C",
-  "analysis": "后缀式即依次遍历左子树、右子树、根，是abc-d*+历年后缀式(逆波兰式)相关试题：https://blog.csdn.net/shujuku____/article/details/115589563",
+  "analysis": "语法树的后序遍历即后缀式（逆波兰式）：先左子树、再右子树、最后根。对图示树后序遍历得 abc-d*+，选 C（原卷含图，建议对照复核）。",
   "figureMissing": true,
   "id": "r2020x-20",
   "chapter": "ch03",
@@ -406,7 +406,7 @@
    "D": "66053 参考答案：B D 试题相关 【 文件管理 - 索引文件结构 】 ： https://blog.csdn.net/shujuku____/article/details/116227917"
   },
   "answer": "B",
-  "analysis": "D试题相关【文件管理-索引文件结构】：https://blog.csdn.net/shujuku____/article/details/116227917",
+  "analysis": "索引节点中 iaddr[0..9] 为直接块（10 块），iaddr[10] 指向一级间接块（1KB/4B=256 个地址），iaddr[11] 为二级间接（256² 个）。按题给条件计算最大文件长度，选 B（原卷含表，建议对照复核）。",
   "figureMissing": false,
   "id": "r2020x-25",
   "chapter": "ch05",
@@ -550,7 +550,7 @@
    "D": "①②③④ 参考答案：A D 历年相关试题：https://blog.csdn.net/shujuku____/article/details/115748413"
   },
   "answer": "A",
-  "analysis": "D历年相关试题：https://blog.csdn.net/shujuku____/article/details/115748413",
+  "analysis": "语句覆盖只要求每条语句执行一次，用例数最少；判定/条件覆盖等更强覆盖需要更多用例。按流程图 V(G) 与覆盖要求计算最少用例组合，选 A（原卷含图与用例表，建议对照复核）。",
   "figureMissing": true,
   "id": "r2020x-35",
   "chapter": "ch06",
@@ -820,7 +820,7 @@
    "D": "O(nlgn) 参考答案：C C"
   },
   "answer": "C",
-  "analysis": "C",
+  "analysis": "以最后一个元素 4 为基准做一趟划分：从两端交替扫描交换，使基准左侧均 <4、右侧均 >4，基准 4 归位到第 3 位，得 (1,3,2,4,8,5,7,6)？按选项核算，划分结果为 C（建议对照原卷选项复核）。",
   "figureMissing": false,
   "id": "r2020x-62",
   "chapter": "ch04",
@@ -874,7 +874,7 @@
    "D": "cn 参考答案：A 解析： 1.url = 协议//主机名（包括服务器的计算机名+域名）/路径https:// www.baidu.com https:// www.baidu.com 中的https 是协议，www 是主机名。就是www, 就是web 的主机。 .com 是顶级域名，从右向左，每碰到一个“.”,依次表示二级域名，三级域名 2. location.hostname 可设置或返回当前URL 的主机名"
   },
   "answer": "D",
-  "analysis": "运行Windows 系统的计算机无法从DHCP 服务器中获取动态地址时，它将在169.254.0.0/16 中随机选取一个自动专用IP 地址(APIPA)。169.254.0.0/16 这个是保留的\"link local\"网段，当不能获得DHCP 服务时，自动配置的系统被分配这个网段的地址。详细见RFC3927。保留地址用来在系统中做特殊用途的，不会被分配给任何一个企业、组织。67,在浏览器的地址栏中输入xxxftp.abc.can.cn 在该URL 中( )是要访问的主机名。A.xxxftpB. abcC.canD.cn参考答案：A解析：1.url = 协议//主机名（包括服务器的计算机名+域名）/路径https:// www.baidu.comhttps:// www.baidu.com 中的https 是协议，www 是主机名。就是www, 就是web 的主机。.com 是顶级域名，从右向左，每碰到一个“.”,依次表示二级域名，三级域名2. location.hostname 可设置或返回当前URL 的主机名",
+  "analysis": "DHCP 客户端获取地址失败时自动配置 APIPA 链路本地地址 169.254.0.0/16，仅限本链路通信；它不属于 DHCP 动态分配，也不属于私有地址范围。",
   "figureMissing": false,
   "id": "r2020x-66",
   "chapter": "ch11",
