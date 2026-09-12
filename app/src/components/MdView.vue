@@ -30,7 +30,7 @@ function renderMath(src: string): string {
 const html = computed(() => {
   const withMath = renderMath(props.source ?? '')
   const raw = marked.parse(withMath, { async: false, breaks: true }) as string
-  return DOMPurify.sanitize(raw, { ADD_ATTR: ['target'] })
+  return DOMPurify.sanitize(raw, { ADD_ATTR: ['target', 'style'] })
 })
 </script>
 

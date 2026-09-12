@@ -60,44 +60,12 @@ h3 { font-size: 16px; margin: 18px 0 8px; }
 .pill.green { background: var(--accent-weak); border-color: transparent; color: var(--accent); }
 .pill.amber { background: var(--accent-2-weak); border-color: transparent; color: var(--accent-2); }
 
-/* 页面骨架 */
-.layout { display: flex; min-height: 100vh; }
-.sidebar {
-  width: 200px;
-  flex: none;
-  border-right: 1px solid var(--line);
-  background: var(--surface);
-  padding: 18px 12px;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
-}
-.sidebar .logo {
-  font-family: var(--font-serif);
-  font-weight: 700;
-  font-size: 17px;
-  padding: 4px 10px 14px;
-  letter-spacing: 1px;
-}
-.sidebar .logo small { display: block; font-size: 11px; color: var(--ink-3); font-weight: 400; letter-spacing: 0; }
-.nav-item {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 8px 10px;
-  border-radius: var(--radius);
-  color: var(--ink-2);
-  margin: 1px 0;
-}
-.nav-item:hover { background: var(--bg); color: var(--ink); text-decoration: none; }
-.nav-item.active { background: var(--accent-weak); color: var(--accent); font-weight: 600; }
-.main { flex: 1; min-width: 0; padding: 26px 32px 60px; max-width: 1080px; }
-
-@media (max-width: 860px) {
-  .sidebar { width: 60px; padding: 14px 8px; }
-  .sidebar .logo small, .nav-label { display: none; }
-  .main { padding: 20px 16px 50px; }
+/* 布局骨架在 App.vue（scoped）；此处仅留移动端全局微调 */
+@media (max-width: 640px) {
+  body { font-size: 14.5px; }
+  h1 { font-size: 21px; }
+  .card { padding: 15px 16px; }
+  button { min-height: 40px; }   /* 触控目标 ≥40px */
 }
 
 /* markdown 讲义排版 */

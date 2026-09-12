@@ -138,6 +138,7 @@ const sourceLabel = computed(() =>
   text-align: left;
   padding: 10px 14px;
   align-items: baseline;
+  min-height: 44px;
 }
 .opt:disabled { cursor: default; }
 .opt.picked { border-color: var(--accent); background: var(--accent-weak); }

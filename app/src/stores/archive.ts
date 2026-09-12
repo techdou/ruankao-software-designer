@@ -15,7 +15,7 @@ export function emptyArchive(): ArchiveData {
     bookmarks: [],
     noteProgress: {},
     history: [],
-    streak: { lastDate: '', days: 0 },
+    streak: { lastDate: '', days: 0, best: 0 },
     settings: { dailyCount: 20, examMinutes: 150 },
   }
 }

@@ -27,7 +27,10 @@ const q = computed(() => {
     <h1>收藏夹</h1>
     <p class="muted">典型题、易错题点个收藏，考前集中重刷。</p>
 
-    <div v-if="!favs.length" class="card">还没有收藏题。做题时点「☆ 收藏」加入这里。</div>
+    <div v-if="!favs.length" class="empty">
+      <img :src="'/art/scene-fav-empty.png'" alt="收藏夹还是空的" />
+      <p>收藏夹还是空的。做题时点「☆ 收藏」，典型题和易错题就会住进这里。</p>
+    </div>
 
     <div v-else-if="!session.length" class="card">
       共 {{ favs.length }} 道收藏题。
@@ -48,4 +51,7 @@ const q = computed(() => {
 <style scoped>
 .meta { padding: 10px 16px; margin-bottom: 12px; }
 .pager { display: flex; justify-content: space-between; margin-top: 4px; }
+.empty { text-align: center; padding: 20px 0; }
+.empty img { max-width: 420px; width: 100%; border-radius: var(--radius-lg); }
+.empty p { color: var(--ink-2); }
 </style>

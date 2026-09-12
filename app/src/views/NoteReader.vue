@@ -93,6 +93,7 @@ function goDrill() {
 
     <article class="content" @scroll.passive="onScroll" ref="readerEl">
       <div class="thead">
+        <div class="chero"><img :src="`./art/${id}.png`" :alt="ch.title" /></div>
         <h1>{{ parsed.meta.title || ch.title }}</h1>
         <div class="muted small">{{ ch.subtitle }} · 预计 {{ parsed.meta.minutes || 45 }} 分钟</div>
         <div class="actions">
@@ -130,7 +131,14 @@ function goDrill() {
 .toc-item:hover { color: var(--accent); text-decoration: none; }
 .content { flex: 1; min-width: 0; max-height: calc(100vh - 70px); overflow-y: auto; padding-right: 6px; }
 .thead { margin-bottom: 14px; }
+.chero { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 14px; }
+.chero img { display: block; width: 100%; max-height: 240px; object-fit: cover; }
 .actions { display: flex; gap: 10px; margin-top: 12px; }
 .pager { display: flex; justify-content: space-between; margin-top: 30px; }
-@media (max-width: 900px) { .toc { display: none; } }
+@media (max-width: 900px) {
+  .toc { display: none; }
+  /* 移动端：取消内部滚动，随页面自然滚动，阅读更顺 */
+  .reader { display: block; }
+  .content { max-height: none; overflow: visible; padding-right: 0; }
+}
 </style>

@@ -57,7 +57,11 @@ const stageLabel = (id: string) => {
         </select>
       </label>
       <button class="primary" @click="start">开始复习</button>
-      <span v-if="!wrongs.length" class="small muted">还没有错题，保持！</span>
+    </div>
+
+    <div v-if="!wrongs.length" class="empty">
+      <img :src="'/art/scene-wrong-empty.png'" alt="暂无错题" />
+      <p>暂无错题——继续保持这个节奏，考试就稳了。</p>
     </div>
 
     <template v-if="session.length && q">
@@ -82,4 +86,7 @@ select { font: inherit; padding: 6px 10px; border: 1px solid var(--line); border
 .filter button { margin-left: auto; }
 .meta { padding: 10px 16px; margin-bottom: 12px; display: flex; gap: 8px; align-items: center; }
 .pager { display: flex; justify-content: space-between; margin-top: 4px; }
+.empty { text-align: center; padding: 20px 0; }
+.empty img { max-width: 420px; width: 100%; border-radius: var(--radius-lg); }
+.empty p { color: var(--ink-2); }
 </style>

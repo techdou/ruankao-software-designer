@@ -65,6 +65,6 @@ export interface ArchiveData {
   bookmarks: string[]
   noteProgress: Record<string, { ratio: number; lastAt: string; done: boolean }>
   history: { qid: string; correct: boolean; at: string }[]  // 作答流水（统计用）
-  streak: { lastDate: string; days: number }
+  streak: { lastDate: string; days: number; best: number }
   settings: { dailyCount: number; examMinutes: number }
 }

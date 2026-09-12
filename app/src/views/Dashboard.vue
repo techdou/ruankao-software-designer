@@ -7,6 +7,7 @@ import { CHAPTERS } from '../data/chapters'
 import { PLAYABLE, ALL_QUESTIONS } from '../data/bank'
 import { isDue } from '../core/srs'
 import ProgressRing from '../components/ProgressRing.vue'
+import Achievements from '../components/Achievements.vue'
 
 const archive = useArchive()
 
@@ -83,6 +84,8 @@ const notesDone = computed(
         {{ w.title }}（正确率 {{ Math.round((w.acc ?? 0) * 100) }}%）
       </RouterLink>
     </div>
+
+    <Achievements />
 
     <h2>章节进度</h2>
     <div class="chlist card">

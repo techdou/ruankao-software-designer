@@ -54,6 +54,7 @@ const progress = computed(() => {
       <p class="muted">
         下午卷五大固定题型，每套 4 小问。先自己作答（写下来），再对照答案与解析自评。
       </p>
+      <div class="hero"><img :src="'/art/hero-cases.png'" alt="案例题插画" /></div>
       <div class="paperlist">
         <div v-for="x in cases" :key="x.id" class="card hoverable paper">
           <div>
@@ -109,6 +110,8 @@ const progress = computed(() => {
 
 <style scoped>
 .paperlist { display: grid; gap: 12px; margin-top: 16px; }
+.hero { margin: 12px 0; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.hero img { display: block; width: 100%; height: auto; }
 .paper { display: flex; justify-content: space-between; align-items: center; }
 .head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
 .bg { border-left: 4px solid var(--accent); margin-bottom: 14px; }

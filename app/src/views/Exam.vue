@@ -64,6 +64,7 @@ const mmss = computed(() => {
     <template v-if="!started">
       <h1>模拟考试</h1>
       <p class="muted">从全部题库随机抽取 75 题，限时 150 分钟，模拟机考节奏。</p>
+      <div class="hero"><img :src="'/art/hero-exam.png'" alt="模拟考试插画" /></div>
       <div class="paperlist">
         <div v-for="t in PRESET_TERMS" :key="t" class="card hoverable paper">
           <div>
@@ -83,11 +84,20 @@ const mmss = computed(() => {
       </div>
 
       <div v-if="submitted" class="card report">
-        <span class="rscore">{{ score }}</span>
-        <span class="rscore-sub">/ 75 分（45 分及格）</span>
-        <div class="small muted" style="margin-top: 4px">
-          {{ score >= 45 ? '过线！保持手感。' : '未过线，回错题本复盘薄弱知识点。' }}
-          已计入错题本与间隔复习。
+        <img
+          class="scene"
+          :src="score >= 45 ? '/art/scene-exam-pass.png' : '/art/scene-exam-fail.png'"
+          :alt="score >= 45 ? '通过' : '继续加油'"
+        />
+        <div class="rbody">
+          <div class="rrow">
+            <span class="rscore">{{ score }}</span>
+            <span class="rscore-sub">/ 75 分（45 分及格）</span>
+          </div>
+          <div class="small muted" style="margin-top: 4px">
+            {{ score >= 45 ? '过线！保持手感。' : '未过线，回错题本复盘薄弱知识点。' }}
+            已计入错题本与间隔复习。
+          </div>
         </div>
       </div>
 
@@ -135,7 +145,13 @@ const mmss = computed(() => {
   border-radius: 8px;
 }
 .timer.urgent { color: var(--danger); background: var(--danger-weak); }
-.report { display: flex; align-items: baseline; gap: 8px; margin-bottom: 14px; border-left: 4px solid var(--accent); }
+.report { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; border-left: 4px solid var(--accent); }
+.scene { width: 210px; border-radius: var(--radius); flex: none; }
+@media (max-width: 640px) { .report { flex-direction: column; align-items: stretch; } .scene { width: 100%; } }
+.rbody { display: flex; flex-direction: column; }
+.rrow { display: flex; align-items: baseline; gap: 8px; }
+.hero { margin: 12px 0; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.hero img { display: block; width: 100%; height: auto; }
 .rscore { font-size: 42px; font-weight: 700; font-family: var(--font-serif); color: var(--accent); }
 .rscore-sub { color: var(--ink-2); }
 .sheet { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; padding: 12px 16px; }

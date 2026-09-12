@@ -36,15 +36,14 @@ function addDays(d: Date, n: number): Date {
   return x
 }
 
-// 连续打卡：与上次学习日相邻则 +1，否则重置为 1
-export function nextStreak(streak: { lastDate: string; days: number }, now = new Date()) {
+// 连续打卡：与上次学习日相邻则 +1，否则重置为 1；best 记录历史最高
+export function nextStreak(streak: { lastDate: string; days: number; best?: number }, now = new Date()) {
   const today = now.toISOString().slice(0, 10)
-  if (streak.lastDate === today) return streak
+  if (streak.lastDate === today) return { ...streak, best: streak.best ?? 0 }
   const yest = new Date(now)
   yest.setDate(yest.getDate() - 1)
   const yestStr = yest.toISOString().slice(0, 10)
-  return {
-    lastDate: today,
-    days: streak.lastDate === yestStr ? streak.days + 1 : 1,
-  }
+  const days = streak.lastDate === yestStr ? streak.days + 1 : 1
+  const best = Math.max(streak.best ?? 0, days)
+  return { lastDate: today, days, best }
 }
