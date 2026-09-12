@@ -74,6 +74,17 @@ const sourceLabel = computed(() =>
 
     <div class="stem"><MdView :source="q.stem" /></div>
 
+    <div v-if="q.figure?.length" class="figures">
+      <img
+        v-for="f in q.figure"
+        :key="f"
+        :src="`./figures/${f}`"
+        :alt="`题目配图 ${f}`"
+        loading="lazy"
+      />
+    </div>
+    <div v-else-if="q.figureMissing" class="pill" title="原卷含图但源 PDF 未印出，请按解析推理">⚠ 原卷含图（源 PDF 未印出）</div>
+
     <div class="opts">
       <button
         v-for="(text, key) in q.options"
@@ -112,6 +123,14 @@ const sourceLabel = computed(() =>
 }
 .qhead .mark.on { color: var(--accent-2); }
 .stem { font-size: 15.5px; }
+.figures { margin-top: 10px; display: grid; gap: 10px; }
+.figures img {
+  max-width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  padding: 8px;
+}
 .opts { display: grid; gap: 8px; margin-top: 12px; }
 .opt {
   display: flex;

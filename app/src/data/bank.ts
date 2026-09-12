@@ -16,6 +16,7 @@ export const REAL_QUESTIONS: ChoiceQuestion[] = (rawReal as any[]).map((q) => ({
   options: q.options,
   answer: (q.answer || '') as OptKey | '',
   analysis: q.analysis || '',
+  figure: (q.figure || []) as string[],
   figureMissing: !!q.figureMissing,
 }))
 

@@ -65,11 +65,14 @@
   },
   "answer": "C",
   "analysis": "4*0.35+2*0.45+6*0.2=3. 52.8G=2.8* 10^9HZ (=2.8*10^3MHz),2.8* 10^9 /3.5=8*10^8=800* 10^6=800MIPS(2.8*10^3/3.5=2800/3.5=800MIPS)1，主频主频= 时钟频率，它是指CPU 内部晶振的频率，常用单位为MHz，它反映了CPU 的基本工作节拍;时钟频率又称主频，它是指CPU 内部晶振的频率，常用单位为MHz，它反映了CPU 的基本工作节拍;2，时钟周期时钟周期t =1/ f; 主频的倒数3，机器周期机器周期= m*t ;一个机器周期包含若干个时钟周期4，指令周期指令周期= m*t*n; 执行一条指令所需要的时间，一般包含若干个机器周期5，CPICPI = m*n;平均每条指令的平均时钟周期个数指令周期= CPI×机器周期= n（CPI=n）×m×时钟周期=nm/主频f, 注意指令周期单位是s 或者ns，CPI 无量纲6，MIPS(MillionInstructions Per Second）MIPS = 每秒执行百万条指令数= 1/（CPI×时钟周期）= 主频/CPIMFLOPS 每秒百万浮点运算次数。表示秒钟所能执行的指令条数，对于微型计算机可用CPU 的主频和每条指令的执行所需的时钟周期来衡量。",
-  "figureMissing": true,
+  "figureMissing": false,
   "id": "r2020x-04",
   "chapter": "ch01",
   "knowledge": "性能—CPI与MIPS",
-  "difficulty": 3
+  "difficulty": 3,
+  "figure": [
+   "r2020x-04.png"
+  ]
  },
  {
   "no": 6,
@@ -1249,15 +1252,18 @@
    "C": "FI",
    "D": "HJ"
   },
-  "answer": "B",
-  "analysis": "关键路径为总时延最长的一条路径，不在其上的活动存在富余时间。对照原卷活动图，BE 不在关键路径上（原卷含图，建议对照复核）。",
+  "answer": "A",
+  "analysis": "由活动图求各路径总长：A-B-E-G-J=27、A-C-F-H-J=40、A-D-F-H-J=48（最长，即关键路径）、A-D-F-I-J=34、A-C-F-I-J=26。关键路径为 A-D-F-H-J，其上的活动是 AD、DF、FH、HJ；A→C 不在其上。选 A。",
   "stem": "下面是一个软件项目活动图，其中顶点表示项目里程碑，连接顶点的边表示包含的活动，边上的权重表示活动的持续时间（天），则关键路径长度为（17），在该活动图中，活动（18）晚16 天开始不会影响上班。",
   "figureMissing": false,
   "sharedStem": true,
   "id": "r2021s-18",
   "chapter": "ch06",
   "knowledge": "项目管理—关键路径",
-  "difficulty": 3
+  "difficulty": 3,
+  "figure": [
+   "r2021s-18.png"
+  ]
  },
  {
   "no": 19,
@@ -1385,12 +1391,15 @@
   "answer": "C",
   "analysis": "3 个存储块先装入页 0、1、2，访问页 3 时按改进 Clock/题给置换规则淘汰页面。对照原卷页表得缺页后应淘汰页 2（原卷含图，建议对照复核）。",
   "stem": "进程P 有5 个页面，页号为0-4，页面变换表及状态位、访问位和修改位的含义如下图所示，若系统给进程P 分配了3 个存储块，当访问的页面3 不在内存时，应该淘汰表中页号为（25）的页面。",
-  "figureMissing": true,
+  "figureMissing": false,
   "sharedStem": false,
   "id": "r2021s-25",
   "chapter": "ch05",
   "knowledge": "页面置换",
-  "difficulty": 4
+  "difficulty": 4,
+  "figure": [
+   "r2021s-25.png"
+  ]
  },
  {
   "no": 26,
@@ -1553,15 +1562,18 @@
    "C": "6",
    "D": "8"
   },
-  "answer": "B",
-  "analysis": "基本路径测试用例数 = 环形复杂度 V(G)。对照原卷流程图，V(G)=4，至少 4 个测试用例（原卷含图，建议对照复核）。",
+  "answer": "A",
+  "analysis": "由流程图：两个判定（(x=0)&&(y>2)、(x<1)&&(y=1)），可执行路径 3 条——判定1为Y→语句A；判定1为N且判定2为Y→语句A；判定1为N且判定2为N→语句B。路径覆盖至少 3 个用例。选 A。",
   "stem": "用白盒测试技术对下面流程图进行测试，至少采用（34）个测试用力才可以实现路径覆盖。",
   "figureMissing": false,
   "sharedStem": false,
   "id": "r2021s-34",
   "chapter": "ch06",
   "knowledge": "白盒测试—基本路径",
-  "difficulty": 3
+  "difficulty": 3,
+  "figure": [
+   "r2021s-34.png"
+  ]
  },
  {
   "no": 35,
@@ -2963,11 +2975,14 @@
   },
   "answer": "A",
   "analysis": "本题考查的是混联模型可靠性计算。可以将图示分解为3 个部分R1、R2、R3 串联，整个系统可靠度为R1*R2*R3。其中R1、R3 的可靠度都为R = 0.95，R2 的可靠度为1 −(1 −R)2 = 1 −(1 −0.95)2。代入表达式可得，系统最终的可靠度为0.95 × (1 −(1 −0.95)2) × 0.95，本题选择A 选项。",
-  "figureMissing": true,
+  "figureMissing": false,
   "id": "r2022s-05",
   "chapter": "ch01",
   "knowledge": "可靠性—混联模型",
-  "difficulty": 3
+  "difficulty": 3,
+  "figure": [
+   "r2022s-05.png"
+  ]
  },
  {
   "no": 6,
@@ -3733,14 +3748,17 @@
    "D": "58"
   },
   "answer": "D",
-  "analysis": "关键路径为活动图中持续时间最长的路径，其长度即项目最短工期。对照原卷活动图，关键路径长度为 58（原卷含图，建议复核）。",
+  "analysis": "由活动图求最长路径：A-B-E-G-J=44、A-C-F-G-J=47、A-C-F-H-J=54、A-D-F-H-J=49、A-D-F-I-J=53、A-C-F-I-J=58。关键路径长度 58。选 D。",
   "stem": "下图是一个软件项目的活动图，其中顶点表示项目里程碑，连接顶点的边表示包含的活动，边上的数字表示完成该活动所需要的天数。则关键路径长度为（17）。若在实际项目进展中，在其他活动都能正常进行的前提下，活动（18）一旦延期就会影响项目的进度。",
-  "figureMissing": true,
+  "figureMissing": false,
   "sharedStem": false,
   "id": "r2022x-17",
   "chapter": "ch06",
   "knowledge": "关键路径",
-  "difficulty": 3
+  "difficulty": 3,
+  "figure": [
+   "r2022x-17.png"
+  ]
  },
  {
   "no": 18,
@@ -3752,14 +3770,17 @@
    "D": "F→H"
   },
   "answer": "B",
-  "analysis": "关键路径上各活动无松弛时间；对照原卷活动图，CF 不在关键路径上（原卷含图，建议复核）。",
+  "analysis": "关键路径 A-C-F-I-J = 16+9+18+15 = 58；C→F 在关键路径上，A→B、D→F、F→H 均不在（其所在路径总长 44/53/49，均小于 58）。",
   "stem": "下图是一个软件项目的活动图，其中顶点表示项目里程碑，连接顶点的边表示包含的活动，边上的数字表示完成该活动所需要的天数。则关键路径长度为（17）。若在实际项目进展中，在其他活动都能正常进行的前提下，活动（18）一旦延期就会影响项目的进度。",
   "figureMissing": false,
   "sharedStem": true,
   "id": "r2022x-18",
   "chapter": "ch06",
   "knowledge": "关键路径",
-  "difficulty": 3
+  "difficulty": 3,
+  "figure": [
+   "r2022x-17.png"
+  ]
  },
  {
   "no": 19,
@@ -3865,15 +3886,19 @@
    "C": "V（S1）V（S2）和V（S3）V（S4）",
    "D": "P（S1）P（S2）和V（S2）V（S3）"
   },
-  "answer": "A",
-  "analysis": "按前趋图：进程完成时 V 操作通知后继（V(S1)V(S2)），启动时 P 操作等待前驱（P(S2)P(S3)）（原卷含图，建议复核）。",
+  "answer": "C",
+  "analysis": "由伪代码与前趋图：P1 完成后须通知 P2、P3，空① = V(S1)V(S2)；P2 完成后须通知 P3、P4，空② = V(S3)V(S4)。选 C。",
   "stem": "进程P1、P2、P3、P4、P5 和P6 的前趋图如下所示。假设用PV 操作控制这6 个进程的同步与互斥的程序如下，程序中的空①和空②处应分别为（24），空③和空④应分别为（25），空⑤和空⑥应分别为（26）。",
   "figureMissing": false,
   "sharedStem": false,
   "id": "r2022x-24",
   "chapter": "ch05",
   "knowledge": "PV操作—前驱图",
-  "difficulty": 4
+  "difficulty": 4,
+  "figure": [
+   "r2022x-24.png",
+   "r2022x-24-pcode.png"
+  ]
  },
  {
   "no": 25,
@@ -3892,7 +3917,11 @@
   "id": "r2022x-25",
   "chapter": "ch05",
   "knowledge": "PV操作—前驱图",
-  "difficulty": 4
+  "difficulty": 4,
+  "figure": [
+   "r2022x-24.png",
+   "r2022x-24-pcode.png"
+  ]
  },
  {
   "no": 26,
@@ -3903,15 +3932,19 @@
    "C": "P（S8）和P（S7）V（S8）",
    "D": "V（S8）和P（S7）P（S8）"
   },
-  "answer": "B",
-  "analysis": "该处按前驱图需先后执行 P(S8) 与 P(S7)P(S8) 的等待操作（原卷含图，建议复核）。",
+  "answer": "D",
+  "analysis": "空⑤：P5 完成后通知 P6，即 V(S8)；空⑥：P6 启动前须等待 P4（S7）与 P5（S8）全部完成，即 P(S7)P(S8)。选 D。",
   "stem": "进程P1、P2、P3、P4、P5 和P6 的前趋图如下所示。假设用PV 操作控制这6 个进程的同步与互斥的程序如下，程序中的空①和空②处应分别为（24），空③和空④应分别为（25），空⑤和空⑥应分别为（26）。",
   "figureMissing": false,
   "sharedStem": true,
   "id": "r2022x-26",
   "chapter": "ch05",
   "knowledge": "PV操作—前驱图",
-  "difficulty": 4
+  "difficulty": 4,
+  "figure": [
+   "r2022x-24.png",
+   "r2022x-24-pcode.png"
+  ]
  },
  {
   "no": 27,
@@ -3922,15 +3955,18 @@
    "C": "最多可有1024 个段，每个段的大小均为1024 个页，页的大小为4K",
    "D": "最多可有1024 个段，每个段最大允许有1024 个页，页的大小为4K"
   },
-  "answer": "B",
-  "analysis": "段页式地址结构由段号、段内页号、页内偏移拼接：按原卷位数，段号 9 位→最多 512 段；页号 11 位→每段**最大** 2048 页（各段页数可不同，故“均为”错）；页内 13 位→页大小 8K。",
+  "answer": "D",
+  "analysis": "地址结构图：段号 31~22 共 10 位 → 最多 2¹⁰=1024 个段；页号 21~12 共 10 位 → 每段最大允许 1024 个页（各段页数可不同，'均为'错）；页内地址 11~0 共 12 位 → 页大小 2¹²=4K。选 D。",
   "stem": "假设段页式存储管理系统中的地址结构如下图所示，则系统（27）。",
-  "figureMissing": true,
+  "figureMissing": false,
   "sharedStem": false,
   "id": "r2022x-27",
   "chapter": "ch05",
   "knowledge": "段页式地址结构",
-  "difficulty": 3
+  "difficulty": 3,
+  "figure": [
+   "r2022x-27.png"
+  ]
  },
  {
   "no": 28,
@@ -4215,7 +4251,10 @@
   "id": "r2022x-42",
   "chapter": "ch08",
   "knowledge": "UML—活动图",
-  "difficulty": 3
+  "difficulty": 3,
+  "figure": [
+   "r2022x-42.png"
+  ]
  },
  {
   "no": 43,
@@ -4628,12 +4667,15 @@
   "answer": "C",
   "analysis": "Dijkstra 逐步选择当前距离最小的顶点扩展，是**贪心算法**策略。",
   "stem": "采用Dijkstra 算法求解下图A 点到E 点的最短路径，采用的算法设计策略是（64）。该最短路径的长度是（65）。",
-  "figureMissing": true,
+  "figureMissing": false,
   "sharedStem": false,
   "id": "r2022x-64",
   "chapter": "ch09",
   "knowledge": "最短路—Dijkstra",
-  "difficulty": 1
+  "difficulty": 1,
+  "figure": [
+   "r2022x-64.png"
+  ]
  },
  {
   "no": 65,
@@ -4644,15 +4686,18 @@
    "C": "7",
    "D": "9"
   },
-  "answer": "B",
-  "analysis": "按原卷带权图，A 到 E 的最短路径长度为 6（原卷含图，建议复核）。",
+  "answer": "A",
+  "analysis": "由带权图：A→D(2)→F(2)→E(1) = 5，为 A 到 E 的最短路径（A→C→E=7、A→B→E=9 更长）。选 A。",
   "stem": "采用Dijkstra 算法求解下图A 点到E 点的最短路径，采用的算法设计策略是（64）。该最短路径的长度是（65）。",
   "figureMissing": false,
   "sharedStem": true,
   "id": "r2022x-65",
   "chapter": "ch09",
   "knowledge": "最短路—Dijkstra",
-  "difficulty": 3
+  "difficulty": 3,
+  "figure": [
+   "r2022x-64.png"
+  ]
  },
  {
   "no": 66,

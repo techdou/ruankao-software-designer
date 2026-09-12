@@ -1,0 +1,15 @@
+{"qid": "r2020x-04", "ok": true, "how": "clip-render", "page": 1, "size": "1134x289", "bytes": 32384}
+{"qid": "r2020x-20", "ok": true, "how": "clip-render", "page": 6, "size": "1134x214", "bytes": 31749}
+{"qid": "r2020x-23", "ok": true, "how": "clip-render", "page": 6, "size": "1134x479", "bytes": 71035}
+{"qid": "r2020x-24", "ok": true, "how": "clip-render", "page": 7, "size": "1134x316", "bytes": 70664}
+{"qid": "r2020x-35", "ok": true, "how": "clip-render", "page": 9, "size": "1134x788", "bytes": 95943}
+{"qid": "r2020x-50", "ok": true, "how": "clip-render", "page": 11, "size": "1134x145", "bytes": 7456}
+{"qid": "r2020x-54", "ok": true, "how": "clip-render", "page": 12, "size": "1134x582", "bytes": 81646}
+{"qid": "r2021s-18", "ok": true, "how": "bitmap", "page": 5, "size": "700x252", "bytes": 52741}
+{"qid": "r2021s-25", "ok": true, "how": "bitmap", "page": 6, "size": "784x222", "bytes": 69890}
+{"qid": "r2021s-34", "ok": true, "how": "bitmap", "page": 9, "size": "554x460", "bytes": 37954}
+{"qid": "r2022s-05", "ok": true, "how": "bitmap", "page": 2, "size": "714x197", "bytes": 7201}
+{"qid": "r2022x-17", "ok": true, "how": "clip-render", "page": 4, "size": "1134x77", "bytes": 14550}
+{"qid": "r2022x-24", "ok": true, "how": "bitmap", "page": 6, "size": "602x280", "bytes": 52091}
+{"qid": "r2022x-42", "ok": true, "how": "bitmap", "page": 9, "size": "781x324", "bytes": 41027}
+{"qid": "r2022x-64", "ok": false, "why": "区域过小 Rect(40.0, 465.0066833496094, 555.2999877929688, 474.3514709472656)"}

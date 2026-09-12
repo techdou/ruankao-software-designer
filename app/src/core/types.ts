@@ -14,7 +14,8 @@ export interface ChoiceQuestion {
   options: Partial<Record<OptKey, string>>
   answer: OptKey | ''              // 待补答案的题为空串
   analysis: string
-  figureMissing?: boolean          // 真题原图缺失（图题），前端提示"配图见原卷"
+  figure?: string[]                 // 配图（public/figures/ 下文件名），共干题共用
+  figureMissing?: boolean          // 原卷含图但源 PDF 未印/未能提取
 }
 
 export interface CaseSubQuestion {
