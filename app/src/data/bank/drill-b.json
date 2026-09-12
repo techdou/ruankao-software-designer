@@ -1,0 +1,1622 @@
+[
+ {
+  "id": "x-ch06-001",
+  "chapter": "ch06",
+  "knowledge": "过程模型选型",
+  "difficulty": 2,
+  "stem": "需求明确且稳定、团队对领域熟悉的大型银行核心系统开发，最适合采用（ ）模型。",
+  "options": {
+   "A": "瀑布",
+   "B": "原型",
+   "C": "喷泉",
+   "D": "极限编程"
+  },
+  "answer": "A",
+  "analysis": "需求稳定明确时瀑布模型的阶段评审与文档驱动优势最大；原型适合需求不清，敏捷适合需求多变。"
+ },
+ {
+  "id": "x-ch06-002",
+  "chapter": "ch06",
+  "knowledge": "耦合",
+  "difficulty": 2,
+  "stem": "模块 A 向模块 B 传递一个标志变量，由 B 根据标志值选择不同的执行路径，A 与 B 的耦合类型是（ ）。",
+  "options": {
+   "A": "数据耦合",
+   "B": "标记耦合",
+   "C": "控制耦合",
+   "D": "公共耦合"
+  },
+  "answer": "C",
+  "analysis": "传递开关量/标志控制对方内部逻辑属于控制耦合；传简单数据参数是数据耦合，传数据结构是标记耦合。"
+ },
+ {
+  "id": "x-ch06-003",
+  "chapter": "ch06",
+  "knowledge": "内聚",
+  "difficulty": 2,
+  "stem": "模块内各成分通过公共数据（如同一缓冲区）发生交互并产生相同的输出数据，该内聚属于（ ）。",
+  "options": {
+   "A": "过程内聚",
+   "B": "时间内聚",
+   "C": "通信内聚",
+   "D": "顺序内聚"
+  },
+  "answer": "C",
+  "analysis": "通信（信息）内聚的标志：在同一数据结构上操作、产生同一输出；顺序内聚强调前一成分的输出是后一成分的输入。"
+ },
+ {
+  "id": "x-ch06-004",
+  "chapter": "ch06",
+  "knowledge": "McCabe",
+  "difficulty": 3,
+  "stem": "某控制流图有 12 条边、10 个节点，其环形复杂度 V(G) 为（ ）。",
+  "options": {
+   "A": "2",
+   "B": "3",
+   "C": "4",
+   "D": "10"
+  },
+  "answer": "C",
+  "analysis": "V(G) = E − N + 2 = 12 − 10 + 2 = 4。"
+ },
+ {
+  "id": "x-ch06-005",
+  "chapter": "ch06",
+  "knowledge": "黑盒—等价类",
+  "difficulty": 2,
+  "stem": "程序要求输入值为 1~100 的整数，按等价类划分方法，无效等价类是（ ）。",
+  "options": {
+   "A": "1~100 之间的整数",
+   "B": "小于 1 的整数",
+   "C": "50",
+   "D": "100"
+  },
+  "answer": "B",
+  "analysis": "有效等价类为 [1,100] 内整数；小于 1、大于 100、非整数均为无效等价类。"
+ },
+ {
+  "id": "x-ch06-006",
+  "chapter": "ch06",
+  "knowledge": "测试阶段",
+  "difficulty": 2,
+  "stem": "确认软件是否满足用户需求、由用户参与并在真实环境进行的测试是（ ）。",
+  "options": {
+   "A": "单元测试",
+   "B": "集成测试",
+   "C": "系统测试",
+   "D": "验收测试"
+  },
+  "answer": "D",
+  "analysis": "验收测试由用户参与确认需求达成，α 测试在开发方场地、β 测试在用户现场。"
+ },
+ {
+  "id": "x-ch06-007",
+  "chapter": "ch06",
+  "knowledge": "维护分类",
+  "difficulty": 1,
+  "stem": "因业务规则变化而修改软件使之以适应新的税收计算方式，属于（ ）维护。",
+  "options": {
+   "A": "改正性",
+   "B": "适应性",
+   "C": "完善性",
+   "D": "预防性"
+  },
+  "answer": "B",
+  "analysis": "适应外部环境/规则变化属适应性维护；加新功能提性能是完善性。"
+ },
+ {
+  "id": "x-ch06-008",
+  "chapter": "ch06",
+  "knowledge": "CMM",
+  "difficulty": 2,
+  "stem": "CMM 五级成熟度中，建立了软件过程与产品质量定量指标的是（ ）。",
+  "options": {
+   "A": "可重复级",
+   "B": "已定义级",
+   "C": "已管理级",
+   "D": "优化级"
+  },
+  "answer": "C",
+  "analysis": "已管理级引入定量的过程与质量度量；优化级强调持续改进与新技术。"
+ },
+ {
+  "id": "x-ch06-009",
+  "chapter": "ch06",
+  "knowledge": "甘特图与PERT",
+  "difficulty": 2,
+  "stem": "能清晰反映任务间依赖关系并计算关键路径的工具是（ ）。",
+  "options": {
+   "A": "甘特图",
+   "B": "PERT 图",
+   "C": "数据流图",
+   "D": "IPO 图"
+  },
+  "answer": "B",
+  "analysis": "PERT 网络图体现依赖与路径；甘特图直观展示时间线但难表达依赖。"
+ },
+ {
+  "id": "x-ch06-010",
+  "chapter": "ch06",
+  "knowledge": "风险管理",
+  "difficulty": 2,
+  "stem": "项目组通过为关键开发人员购买人身保险来降低人员流失带来的损失，该风险应对策略属于（ ）。",
+  "options": {
+   "A": "回避",
+   "B": "转移",
+   "C": "减轻",
+   "D": "接受"
+  },
+  "answer": "B",
+  "analysis": "保险、外包均是把风险后果转给第三方，属转移策略。"
+ },
+ {
+  "id": "x-ch06-011",
+  "chapter": "ch06",
+  "knowledge": "软件质量",
+  "difficulty": 2,
+  "stem": "按 ISO/IEC 25010，下列属于可移植性子特性的是（ ）。",
+  "options": {
+   "A": "易测试性",
+   "B": "易安装性",
+   "C": "稳定性",
+   "D": "易分析性"
+  },
+  "answer": "B",
+  "analysis": "可移植性含适应性、易安装性、遵循性、易替换性；易测试性、易分析性、稳定性属可维护性。"
+ },
+ {
+  "id": "x-ch06-012",
+  "chapter": "ch06",
+  "knowledge": "配置管理",
+  "difficulty": 2,
+  "stem": "经过正式评审并批准、作为后续开发基础的产品规格，在配置管理中称为（ ）。",
+  "options": {
+   "A": "基线",
+   "B": "版本号",
+   "C": "配置项",
+   "D": "变更请求"
+  },
+  "answer": "A",
+  "analysis": "基线 = 通过正式评审的规格或产品，变更需走 CCB 变更控制流程。"
+ },
+ {
+  "id": "x-ch07-001",
+  "chapter": "ch07",
+  "knowledge": "DFD 元素",
+  "difficulty": 2,
+  "stem": "数据流图中的数据存储是指（ ）。",
+  "options": {
+   "A": "数据库管理系统",
+   "B": "记录/文件的逻辑存储表示",
+   "C": "磁盘的物理结构",
+   "D": "内存缓冲区"
+  },
+  "answer": "B",
+  "analysis": "数据存储是对数据逻辑保存的抽象表示（如订单表 D1），不涉及物理介质。"
+ },
+ {
+  "id": "x-ch07-002",
+  "chapter": "ch07",
+  "knowledge": "DFD 原则",
+  "difficulty": 2,
+  "stem": "下列关于分层 DFD 的说法，错误的是（ ）。",
+  "options": {
+   "A": "父图中某加工的输入输出与子图平衡",
+   "B": "加工编号体现层级关系",
+   "C": "允许数据存储与外部实体直接相连",
+   "D": "每个加工都应有命名"
+  },
+  "answer": "C",
+  "analysis": "数据存储与外部实体之间必须经过加工，不能直接连数据流。"
+ },
+ {
+  "id": "x-ch07-003",
+  "chapter": "ch07",
+  "knowledge": "判定树",
+  "difficulty": 2,
+  "stem": "加工逻辑涉及按客户的信用等级和订单金额给出不同折扣率，最适宜的描述工具是（ ）。",
+  "options": {
+   "A": "结构化语言",
+   "B": "判定树或判定表",
+   "C": "流程图",
+   "D": "E-R 图"
+  },
+  "answer": "B",
+  "analysis": "多条件组合多动作的加工逻辑用判定表/判定树最清晰；结构化语言适合顺序较多、组合较少的逻辑。"
+ },
+ {
+  "id": "x-ch07-004",
+  "chapter": "ch07",
+  "knowledge": "变换分析",
+  "difficulty": 3,
+  "stem": "DFD 呈现明显的'输入—变换中心—输出'三段结构，应采用（ ）映射出结构图。",
+  "options": {
+   "A": "事务分析",
+   "B": "变换分析",
+   "C": "数据字典",
+   "D": "面向对象分析"
+  },
+  "answer": "B",
+  "analysis": "变换型 DFD 用变换分析生成传入/变换/传出三大分支；事务型按类型分流用事务分析。"
+ },
+ {
+  "id": "x-ch07-005",
+  "chapter": "ch07",
+  "knowledge": "结构化程序设计",
+  "difficulty": 1,
+  "stem": "结构化程序设计强调使用三种基本控制结构，它们是（ ）。",
+  "options": {
+   "A": "顺序、选择、循环",
+   "B": "递归、迭代、跳转",
+   "C": "模块、子程序、函数",
+   "D": "输入、处理、输出"
+  },
+  "answer": "A",
+  "analysis": "三种基本结构单入口单出口，理论上可组合实现任何可计算程序（GOTO 应限制使用）。"
+ },
+ {
+  "id": "x-ch07-006",
+  "chapter": "ch07",
+  "knowledge": "数据字典",
+  "difficulty": 2,
+  "stem": "数据字典中，'订单号 = 8{数字}8' 这种写法属于（ ）条目。",
+  "options": {
+   "A": "数据流",
+   "B": "数据项/数据结构定义",
+   "C": "加工逻辑",
+   "D": "外部实体"
+  },
+  "answer": "B",
+  "analysis": "用重复符号描述数据组成结构的是数据项/数据结构条目；加工逻辑条目描述变换规则。"
+ },
+ {
+  "id": "x-ch07-007",
+  "chapter": "ch07",
+  "knowledge": "模块作用域",
+  "difficulty": 3,
+  "stem": "模块 A 的判定影响了模块 B，但 B 不在 A 的控制范围内，最合理的调整方法是（ ）。",
+  "options": {
+   "A": "删除模块 B",
+   "B": "将判定上移到 A、B 的共同上级模块",
+   "C": "将 B 合并进 A 的下级",
+   "D": "增加 A 与 B 的耦合"
+  },
+  "answer": "B",
+  "analysis": "作用范围应落在控制范围内，常用手段是把判定所在模块上移（或把受影响模块下移）到共同祖先之下。"
+ },
+ {
+  "id": "x-ch07-008",
+  "chapter": "ch07",
+  "knowledge": "结构化分析产物",
+  "difficulty": 1,
+  "stem": "结构化分析方法（SA）的主要产出不包括（ ）。",
+  "options": {
+   "A": "分层数据流图",
+   "B": "数据字典",
+   "C": "加工逻辑说明",
+   "D": "类图"
+  },
+  "answer": "D",
+  "analysis": "类图是面向对象方法（OOA）的产物；SA 的三大工具是 DFD、DD、加工说明。"
+ },
+ {
+  "id": "x-ch07-009",
+  "chapter": "ch07",
+  "knowledge": "事务分析",
+  "difficulty": 3,
+  "stem": "某系统根据用户命令类型分别进入查询、报表、维护等不同处理路径，设计结构图时应采用（ ）。",
+  "options": {
+   "A": "变换分析",
+   "B": "事务分析",
+   "C": "时序分析",
+   "D": "模块化分解"
+  },
+  "answer": "B",
+  "analysis": "按事务类型分派多条动作路径的 DFD 是事务型，用事务分析建立事务中心与各路径模块。"
+ },
+ {
+  "id": "x-ch07-010",
+  "chapter": "ch07",
+  "knowledge": "DFD 分层",
+  "difficulty": 2,
+  "stem": "顶层 DFD（0 层图）通常只有一个加工，它代表（ ）。",
+  "options": {
+   "A": "系统的主要子功能",
+   "B": "整个系统与外部的边界",
+   "C": "数据库",
+   "D": "最详细的处理逻辑"
+  },
+  "answer": "B",
+  "analysis": "顶层图把整个系统作为一个加工，标注与外部实体的全部输入输出流，确定系统边界。"
+ },
+ {
+  "id": "x-ch07-011",
+  "chapter": "ch07",
+  "knowledge": "加工编号",
+  "difficulty": 2,
+  "stem": "父图中加工 3 分解成的子图中，各加工的编号应为（ ）。",
+  "options": {
+   "A": "1.1、1.2、1.3",
+   "B": "3.1、3.2、3.3",
+   "C": "3a、3b",
+   "D": "A、B、C"
+  },
+  "answer": "B",
+  "analysis": "子图加工编号 = 父加工号.序号，保证父子图对应关系。"
+ },
+ {
+  "id": "x-ch07-012",
+  "chapter": "ch07",
+  "knowledge": "DFD 与流程图",
+  "difficulty": 2,
+  "stem": "数据流图与程序流程图的本质区别是（ ）。",
+  "options": {
+   "A": "DFD 表示数据流向与加工，流程图表示控制流程",
+   "B": "DFD 用于测试，流程图用于设计",
+   "C": "DFD 更接近程序代码",
+   "D": "两者完全等价"
+  },
+  "answer": "A",
+  "analysis": "DFD 是功能模型（做什么），无控制流、时序；流程图是过程描述（怎么做），含控制结构。"
+ },
+ {
+  "id": "x-ch08-001",
+  "chapter": "ch08",
+  "knowledge": "设计模式—单例",
+  "difficulty": 2,
+  "stem": "某配置管理类要求全系统仅存在一个实例并提供全局访问点，应采用（ ）模式。",
+  "options": {
+   "A": "单例（Singleton）",
+   "B": "原型（Prototype）",
+   "C": "外观（Facade）",
+   "D": "享元（Flyweight）"
+  },
+  "answer": "A",
+  "analysis": "单例模式私有化构造函数、静态方法返回唯一实例。"
+ },
+ {
+  "id": "x-ch08-002",
+  "chapter": "ch08",
+  "knowledge": "设计模式—观察者",
+  "difficulty": 2,
+  "stem": "微信公众号被关注后，发布新文章会自动推送给所有粉丝，该场景最适合（ ）模式。",
+  "options": {
+   "A": "责任链",
+   "B": "观察者",
+   "C": "中介者",
+   "D": "访问者"
+  },
+  "answer": "B",
+  "analysis": "一对多的状态变更自动通知是观察者模式；主题维护观察者列表并统一 notify。"
+ },
+ {
+  "id": "x-ch08-003",
+  "chapter": "ch08",
+  "knowledge": "UML—类图关系",
+  "difficulty": 2,
+  "stem": "类图中，整体与部分关系且整体消失部分也随之消失（如房子与房间），应表示为（ ）。",
+  "options": {
+   "A": "泛化",
+   "B": "依赖",
+   "C": "组合",
+   "D": "实现"
+  },
+  "answer": "C",
+  "analysis": "组合是强'整体-部分'，同生共死，实心菱形指向整体；聚合可独立存在。"
+ },
+ {
+  "id": "x-ch08-004",
+  "chapter": "ch08",
+  "knowledge": "设计模式—适配器",
+  "difficulty": 2,
+  "stem": "系统需要复用一个已有类，但其接口与系统要求的接口不兼容，应采用（ ）模式。",
+  "options": {
+   "A": "装饰器",
+   "B": "适配器",
+   "C": "代理",
+   "D": "桥接"
+  },
+  "answer": "B",
+  "analysis": "适配器把不兼容接口转换成目标接口；代理控制访问，装饰器加职责，桥接分离维度。"
+ },
+ {
+  "id": "x-ch08-005",
+  "chapter": "ch08",
+  "knowledge": "设计模式—状态",
+  "difficulty": 3,
+  "stem": "自动售货机的行为随'已投币/未投币/售罄'等内部状态变化而变化，最适合采用（ ）模式。",
+  "options": {
+   "A": "策略",
+   "B": "状态",
+   "C": "命令",
+   "D": "模板方法"
+  },
+  "answer": "B",
+  "analysis": "状态模式把每种状态封装为类，对象行为随内部状态改变而切换；策略由外部注入算法。"
+ },
+ {
+  "id": "x-ch08-006",
+  "chapter": "ch08",
+  "knowledge": "UML—用例图",
+  "difficulty": 2,
+  "stem": "用例图中，'登录'与'身份校验'之间如果后者是前者必然包含的行为，应使用（ ）关系。",
+  "options": {
+   "A": "extend",
+   "B": "include",
+   "C": "泛化",
+   "D": "关联"
+  },
+  "answer": "B",
+  "analysis": "include 表示必然包含的公共子流程；extend 表示可选/异常扩展行为。"
+ },
+ {
+  "id": "x-ch08-007",
+  "chapter": "ch08",
+  "knowledge": "UML—顺序图",
+  "difficulty": 2,
+  "stem": "顺序图中，对象生命线上表示该对象正在执行某操作的矩形条称为（ ）。",
+  "options": {
+   "A": "激活（控制焦点）",
+   "B": "消息",
+   "C": "守卫条件",
+   "D": "同步条"
+  },
+  "answer": "A",
+  "analysis": "激活条（activation）表示对象处于执行动作的时间段；消息是对象间横向箭头。"
+ },
+ {
+  "id": "x-ch08-008",
+  "chapter": "ch08",
+  "knowledge": "设计原则",
+  "difficulty": 2,
+  "stem": "子类可以扩展父类的功能，但不能改变父类原有的功能约定，即任何父类出现的地方子类都可透明替换，这属于（ ）原则。",
+  "options": {
+   "A": "开闭原则",
+   "B": "里氏替换原则",
+   "C": "依赖倒置原则",
+   "D": "接口分离原则"
+  },
+  "answer": "B",
+  "analysis": "里氏替换原则（LSP）保证继承体系的替换安全性。"
+ },
+ {
+  "id": "x-ch08-009",
+  "chapter": "ch08",
+  "knowledge": "设计模式—桥接",
+  "difficulty": 3,
+  "stem": "图形既可按形状（圆/方）分类，又可按绘制方式（矢量/位图）分类，两个维度都会扩展，为避免类爆炸应采用（ ）模式。",
+  "options": {
+   "A": "桥接",
+   "B": "组合",
+   "C": "外观",
+   "D": "享元"
+  },
+  "answer": "A",
+  "analysis": "桥接分离两个独立变化维度（抽象与实现），通过组合替代多层继承。"
+ },
+ {
+  "id": "x-ch08-010",
+  "chapter": "ch08",
+  "knowledge": "设计模式—责任链",
+  "difficulty": 3,
+  "stem": "审批流程中，金额小于 1000 由组长审，小于 1 万由经理审，否则由总监审，请求沿级别链传递，最适合（ ）模式。",
+  "options": {
+   "A": "责任链",
+   "B": "状态",
+   "C": "策略",
+   "D": "中介者"
+  },
+  "answer": "A",
+  "analysis": "多个处理者构成链、请求逐级传递直至被处理，是责任链的典型场景。"
+ },
+ {
+  "id": "x-ch08-011",
+  "chapter": "ch08",
+  "knowledge": "重载与覆盖",
+  "difficulty": 2,
+  "stem": "同一个类中定义了两个同名方法 add(int,int) 与 add(double,double)，这种现象称为（ ）。",
+  "options": {
+   "A": "覆盖（重写）",
+   "B": "重载",
+   "C": "多态绑定",
+   "D": "抽象"
+  },
+  "answer": "B",
+  "analysis": "同名不同参数（类型/个数）是重载，编译期根据实参静态绑定；覆盖发生在父子类之间。"
+ },
+ {
+  "id": "x-ch08-012",
+  "chapter": "ch08",
+  "knowledge": "设计模式—生成器",
+  "difficulty": 3,
+  "stem": "文档导出器把'构建章节—构建目录—构建索引'的流程固定，但可分别生成 PDF、HTML 两种表示，应采用（ ）模式。",
+  "options": {
+   "A": "工厂方法",
+   "B": "生成器（Builder）",
+   "C": "原型",
+   "D": "模板方法"
+  },
+  "answer": "B",
+  "analysis": "生成器模式把复杂对象的构建过程与表示分离，同样流程可产出不同表示。"
+ },
+ {
+  "id": "x-ch09-001",
+  "chapter": "ch09",
+  "knowledge": "复杂度比较",
+  "difficulty": 2,
+  "stem": "下列复杂度从小到大排列正确的是（ ）。",
+  "options": {
+   "A": "O(logn) < O(n) < O(nlogn) < O(n²)",
+   "B": "O(n) < O(logn) < O(n²) < O(nlogn)",
+   "C": "O(nlogn) < O(n) < O(logn) < O(n²)",
+   "D": "O(n²) < O(nlogn) < O(n) < O(logn)"
+  },
+  "answer": "A",
+  "analysis": "对数 < 线性 < 线性对数 < 平方，是渐进阶的标准次序。"
+ },
+ {
+  "id": "x-ch09-002",
+  "chapter": "ch09",
+  "knowledge": "策略识别—贪心",
+  "difficulty": 2,
+  "stem": "用 Prim 算法求最小生成树采用的算法设计策略是（ ）。",
+  "options": {
+   "A": "分治",
+   "B": "动态规划",
+   "C": "贪心",
+   "D": "回溯"
+  },
+  "answer": "C",
+  "analysis": "Prim/Kruskal 每次选当前权值最小的边（点）扩展，均属贪心策略。"
+ },
+ {
+  "id": "x-ch09-003",
+  "chapter": "ch09",
+  "knowledge": "策略识别—回溯",
+  "difficulty": 2,
+  "stem": "求解 N 皇后问题时，逐行放皇后并在冲突时撤销上一步继续尝试，该方法是（ ）。",
+  "options": {
+   "A": "动态规划",
+   "B": "贪心",
+   "C": "回溯法",
+   "D": "分支限界"
+  },
+  "answer": "C",
+  "analysis": "深度优先搜索解空间 + 冲突回退（剪枝）是回溯法的标志。"
+ },
+ {
+  "id": "x-ch09-004",
+  "chapter": "ch09",
+  "knowledge": "LCS",
+  "difficulty": 3,
+  "stem": "求两个序列的最长公共子序列（LCS）适合采用（ ）。",
+  "options": {
+   "A": "贪心",
+   "B": "动态规划",
+   "C": "分支限界",
+   "D": "分治"
+  },
+  "answer": "B",
+  "analysis": "LCS 具有最优子结构和重叠子问题，标准 DP：相等时取左上+1，否则取上/左较大者。"
+ },
+ {
+  "id": "x-ch09-005",
+  "chapter": "ch09",
+  "knowledge": "0-1背包",
+  "difficulty": 3,
+  "stem": "0-1 背包问题不能使用贪心法求得最优解的原因是（ ）。",
+  "options": {
+   "A": "背包容量太小",
+   "B": "物品不可分割，局部最优不能保证全局最优",
+   "C": "物品价值都是整数",
+   "D": "时间复杂度不够"
+  },
+  "answer": "B",
+  "analysis": "0-1 背包物品不可分割，按单位价值贪心会留洞；部分背包可分割才能贪心。"
+ },
+ {
+  "id": "x-ch09-006",
+  "chapter": "ch09",
+  "knowledge": "主定理",
+  "difficulty": 3,
+  "stem": "某分治算法 T(n)=2T(n/2)+n，其时间复杂度为（ ）。",
+  "options": {
+   "A": "O(n)",
+   "B": "O(nlogn)",
+   "C": "O(n²)",
+   "D": "O(logn)"
+  },
+  "answer": "B",
+  "analysis": "每层合并代价 n、共 logn 层 → O(nlogn)，归并排序即此模型。"
+ },
+ {
+  "id": "x-ch09-007",
+  "chapter": "ch09",
+  "knowledge": "Dijkstra",
+  "difficulty": 2,
+  "stem": "关于 Dijkstra 算法，下列说法错误的是（ ）。",
+  "options": {
+   "A": "采用贪心策略",
+   "B": "每次选择距离源点最近的未确定顶点",
+   "C": "可以处理带负权边的图",
+   "D": "单源最短路径算法"
+  },
+  "answer": "C",
+  "analysis": "负权边会使已确定的最短距离失效，Dijkstra 不适用；含负权（无负环）用 Floyd/Bellman-Ford。"
+ },
+ {
+  "id": "x-ch09-008",
+  "chapter": "ch09",
+  "knowledge": "分支限界",
+  "difficulty": 2,
+  "stem": "与回溯法相比，分支限界法的显著特点是（ ）。",
+  "options": {
+   "A": "深度优先搜索解空间",
+   "B": "广度优先或最优优先搜索，目标为最优解",
+   "C": "只能求解判定问题",
+   "D": "不需要剪枝"
+  },
+  "answer": "B",
+  "analysis": "分支限界用队列/优先队列扩展活结点（广度或最优优先），以尽快找到最优解为目标。"
+ },
+ {
+  "id": "x-ch09-009",
+  "chapter": "ch09",
+  "knowledge": "渐进分析",
+  "difficulty": 3,
+  "stem": "若 f(n) = 3n² + 100n + 500，则 f(n) = （ ）。",
+  "options": {
+   "A": "O(n)",
+   "B": "O(n²)",
+   "C": "O(nlogn)",
+   "D": "O(2^n)"
+  },
+  "answer": "B",
+  "analysis": "取最高阶项并忽略常数：f(n) = O(n²)。"
+ },
+ {
+  "id": "x-ch09-010",
+  "chapter": "ch09",
+  "knowledge": "矩阵连乘",
+  "difficulty": 3,
+  "stem": "矩阵连乘最优加括号问题 Ai...Aj 的求解思想是（ ）。",
+  "options": {
+   "A": "枚举所有括号方案取最值",
+   "B": "对每个分割点 k 递归求子问题，取最小区分代价",
+   "C": "按矩阵维数排序依次相乘",
+   "D": "贪心选最小维数矩阵先乘"
+  },
+  "answer": "B",
+  "analysis": "标准区间 DP：m[i][j]=min{m[i][k]+m[k+1][j]+p(i−1)p(k)p(j)}，枚举分割点合并子问题。"
+ },
+ {
+  "id": "x-ch09-011",
+  "chapter": "ch09",
+  "knowledge": "策略识别—分治",
+  "difficulty": 2,
+  "stem": "归并排序将序列分成两半分别排序后合并，采用的策略是（ ）。",
+  "options": {
+   "A": "分治",
+   "B": "贪心",
+   "C": "回溯",
+   "D": "动态规划"
+  },
+  "answer": "A",
+  "analysis": "分解（减半）+ 递归求解（子问题独立）+ 合并（O(n) 归并）是分治的标准三步。"
+ },
+ {
+  "id": "x-ch09-012",
+  "chapter": "ch09",
+  "knowledge": "贪心适用性",
+  "difficulty": 3,
+  "stem": "下列问题中，可以用贪心算法保证得到最优解的是（ ）。",
+  "options": {
+   "A": "0-1 背包",
+   "B": "活动选择（最多不冲突活动）",
+   "C": "TSP 旅行商",
+   "D": "一般图着色"
+  },
+  "answer": "B",
+  "analysis": "活动选择按结束时间贪心可证最优；0-1 背包、TSP、图着色贪心均不能保证最优。"
+ },
+ {
+  "id": "x-ch10-001",
+  "chapter": "ch10",
+  "knowledge": "关系代数—自然连接",
+  "difficulty": 3,
+  "stem": "R(A,B,C) 与 S(C,D) 做自然连接，结果集的关系模式包含（ ）个属性。",
+  "options": {
+   "A": "2",
+   "B": "3",
+   "C": "4",
+   "D": "5"
+  },
+  "answer": "C",
+  "analysis": "自然连接去掉重复公共属性 C：A、B、C、D 共 4 列 = 3+2−1。"
+ },
+ {
+  "id": "x-ch10-002",
+  "chapter": "ch10",
+  "knowledge": "候选码",
+  "difficulty": 3,
+  "stem": "R(U,F)，U={A,B,C}，F={A→B, B→C}，则候选码为（ ）。",
+  "options": {
+   "A": "A",
+   "B": "B",
+   "C": "C",
+   "D": "AB"
+  },
+  "answer": "A",
+  "analysis": "A⁺ = {A,B,C} 覆盖 U 且极小，候选码 A；存在传递依赖 A→B→C，最高 2NF。"
+ },
+ {
+  "id": "x-ch10-003",
+  "chapter": "ch10",
+  "knowledge": "范式",
+  "difficulty": 3,
+  "stem": "关系模式满足 3NF 但不满足 BCNF 的可能原因是（ ）。",
+  "options": {
+   "A": "存在部分函数依赖",
+   "B": "存在主属性对码的传递/部分依赖",
+   "C": "存在非原子的属性",
+   "D": "存在多值依赖"
+  },
+  "answer": "B",
+  "analysis": "3NF 允许主属性对码的传递依赖（BCNF 要求所有决定因素都包含码）；非原子属 1NF 问题。"
+ },
+ {
+  "id": "x-ch10-004",
+  "chapter": "ch10",
+  "knowledge": "SQL—聚合",
+  "difficulty": 2,
+  "stem": "SQL 中，统计各班人数应使用的子句组合是（ ）。",
+  "options": {
+   "A": "GROUP BY 班级 与 COUNT(*)",
+   "B": "ORDER BY 班级 与 COUNT(*)",
+   "C": "WHERE 与 SUM(*)",
+   "D": "DISTINCT 与 AVG"
+  },
+  "answer": "A",
+  "analysis": "分组统计：SELECT 班级, COUNT(*) FROM 学生 GROUP BY 班级；聚合函数的筛选用 HAVING。"
+ },
+ {
+  "id": "x-ch10-005",
+  "chapter": "ch10",
+  "knowledge": "事务ACID",
+  "difficulty": 2,
+  "stem": "事务一旦提交，其对数据库的改变是永久的，这一特性称为（ ）。",
+  "options": {
+   "A": "原子性",
+   "B": "一致性",
+   "C": "隔离性",
+   "D": "持久性"
+  },
+  "answer": "D",
+  "analysis": "持久性（Durability）由恢复机制（日志）保证；原子性指全做或全不做。"
+ },
+ {
+  "id": "x-ch10-006",
+  "chapter": "ch10",
+  "knowledge": "并发问题",
+  "difficulty": 2,
+  "stem": "事务 T1 读取了 T2 修改但尚未提交的数据，之后 T2 回滚，T1 读到的数据无效。该现象称为（ ）。",
+  "options": {
+   "A": "丢失修改",
+   "B": "读脏数据",
+   "C": "不可重复读",
+   "D": "幻影读"
+  },
+  "answer": "B",
+  "analysis": "读到未提交且被回滚的数据即脏读；二级封锁协议（读时加 S 锁、事务释锁前写加 X）可防止。"
+ },
+ {
+  "id": "x-ch10-007",
+  "chapter": "ch10",
+  "knowledge": "封锁协议",
+  "difficulty": 3,
+  "stem": "关于封锁协议，下列说法正确的是（ ）。",
+  "options": {
+   "A": "S 锁与 S 锁不相容",
+   "B": "X 锁与 S 锁相容",
+   "C": "三级封锁协议可防止不可重复读",
+   "D": "两段锁协议能预防死锁"
+  },
+  "answer": "C",
+  "analysis": "S-S 相容、含 X 不容；三级协议 S 锁保持到事务结束防止不可重复读；2PL 保证可串行化但不防死锁。"
+ },
+ {
+  "id": "x-ch10-008",
+  "chapter": "ch10",
+  "knowledge": "恢复—检查点",
+  "difficulty": 2,
+  "stem": "数据库恢复中，日志文件与事务写入的先后关系应为（ ）。",
+  "options": {
+   "A": "先写数据库再写日志",
+   "B": "先写日志再写数据库",
+   "C": "同时写入",
+   "D": "顺序无关"
+  },
+  "answer": "B",
+  "analysis": "日志先写（WAL）原则：先记日志再改数据库，故障时才能依据日志 REDO/UNDO。"
+ },
+ {
+  "id": "x-ch10-009",
+  "chapter": "ch10",
+  "knowledge": "视图",
+  "difficulty": 2,
+  "stem": "下列关于视图的说法错误的是（ ）。",
+  "options": {
+   "A": "视图是虚表，数据库只存其定义",
+   "B": "视图可以简化查询、提供安全隔离",
+   "C": "含 GROUP BY 的视图一般不可更新",
+   "D": "视图中的数据独立存储，与基本表无关"
+  },
+  "answer": "D",
+  "analysis": "视图数据来自基本表实时查询，不独立存储；修改基本表数据视图随之变化。"
+ },
+ {
+  "id": "x-ch10-010",
+  "chapter": "ch10",
+  "knowledge": "ER—集成冲突",
+  "difficulty": 3,
+  "stem": "人事部门与教学部门分 ER 图中'职工'与'教师'实体的属性个数不同但指向同一现实对象，集成时应处理为（ ）。",
+  "options": {
+   "A": "属性冲突",
+   "B": "命名冲突",
+   "C": "结构冲突",
+   "D": "冗余冲突"
+  },
+  "answer": "C",
+  "analysis": "同一对象在不同局部图中抽象（属性集/实体属性化程度）不一致属结构冲突，需取属性并集统一。"
+ },
+ {
+  "id": "x-ch10-011",
+  "chapter": "ch10",
+  "knowledge": "关系代数—除法",
+  "difficulty": 4,
+  "stem": "查询'选修了全部课程的学生姓名'，最合适的关系代数运算是（ ）。",
+  "options": {
+   "A": "选择 σ",
+   "B": "投影 π",
+   "C": "除 ÷",
+   "D": "笛卡尔积 ×"
+  },
+  "answer": "C",
+  "analysis": "'全部'类查询（全称量词）用除法：π学生号,课程号(选课) ÷ π课程号(课程)，再连接学生表取姓名。"
+ },
+ {
+  "id": "x-ch10-012",
+  "chapter": "ch10",
+  "knowledge": "分布式数据库",
+  "difficulty": 2,
+  "stem": "分布式数据库中，用户无需知道数据存放在哪个场地，这一透明性称为（ ）。",
+  "options": {
+   "A": "分片透明性",
+   "B": "位置透明性",
+   "C": "局部映像透明性",
+   "D": "复制透明性"
+  },
+  "answer": "B",
+  "analysis": "位置透明性屏蔽数据所在场地；分片透明性更高一层，屏蔽分片方式。"
+ },
+ {
+  "id": "x-ch11-001",
+  "chapter": "ch11",
+  "knowledge": "子网划分",
+  "difficulty": 3,
+  "stem": "将 192.168.10.0/24 划分为每个子网至少 50 台主机的子网，最多可分出（ ）个。",
+  "options": {
+   "A": "2",
+   "B": "4",
+   "C": "8",
+   "D": "16"
+  },
+  "answer": "B",
+  "analysis": "50 ≤ 2^h−2 → h=6（62 台）。主机位 6，子网位 2 → 4 个子网（/26）。"
+ },
+ {
+  "id": "x-ch11-002",
+  "chapter": "ch11",
+  "knowledge": "路由聚合",
+  "difficulty": 3,
+  "stem": "将 10.0.0.0/16 与 10.1.0.0/16 两个网络进行路由聚合，聚合后的地址是（ ）。",
+  "options": {
+   "A": "10.0.0.0/15",
+   "B": "10.0.0.0/16",
+   "C": "10.1.0.0/16",
+   "D": "10.0.0.0/14"
+  },
+  "answer": "A",
+  "analysis": "两网第二字节 00000000 与 00000001 的公共前缀为 7 位，聚合为 10.0.0.0/15，覆盖 10.0.0.0~10.1.255.255。"
+ },
+ {
+  "id": "x-ch11-003",
+  "chapter": "ch11",
+  "knowledge": "TCP 连接",
+  "difficulty": 2,
+  "stem": "TCP 建立连接需要三次握手，其主要作用是（ ）。",
+  "options": {
+   "A": "加密传输数据",
+   "B": "确认双方的收发能力并同步序列号",
+   "C": "压缩数据",
+   "D": "分配端口号"
+  },
+  "answer": "B",
+  "analysis": "SYN/SYN+ACK/ACK 确认双向信道可用并同步初始序号；加密是 TLS 的事。"
+ },
+ {
+  "id": "x-ch11-004",
+  "chapter": "ch11",
+  "knowledge": "协议端口",
+  "difficulty": 2,
+  "stem": "下列协议与默认端口对应错误的是（ ）。",
+  "options": {
+   "A": "HTTP—80",
+   "B": "HTTPS—443",
+   "C": "SMTP—110",
+   "D": "DNS—53"
+  },
+  "answer": "C",
+  "analysis": "SMTP 是 25，110 是 POP3。"
+ },
+ {
+  "id": "x-ch11-005",
+  "chapter": "ch11",
+  "knowledge": "OSI 设备",
+  "difficulty": 2,
+  "stem": "能够根据 MAC 地址表进行帧转发的设备是（ ）。",
+  "options": {
+   "A": "集线器",
+   "B": "交换机",
+   "C": "路由器",
+   "D": "中继器"
+  },
+  "answer": "B",
+  "analysis": "二层交换机查 MAC 地址表转发帧；路由器查路由表转发 IP 包；集线器/中继器只在物理层广播。"
+ },
+ {
+  "id": "x-ch11-006",
+  "chapter": "ch11",
+  "knowledge": "DNS 解析",
+  "difficulty": 2,
+  "stem": "主机向本地域名服务器发出的查询通常是（ ）方式，本地域名服务器向根服务器发出的是（ ）方式。",
+  "options": {
+   "A": "迭代；递归",
+   "B": "递归；迭代",
+   "C": "递归；递归",
+   "D": "迭代；迭代"
+  },
+  "answer": "B",
+  "analysis": "主机→本地服务器递归（必须给出最终结果）；本地→根/顶级迭代（返回下一步该问谁）。"
+ },
+ {
+  "id": "x-ch11-007",
+  "chapter": "ch11",
+  "knowledge": "IP 地址分类",
+  "difficulty": 2,
+  "stem": "地址 172.20.1.5 属于（ ）。",
+  "options": {
+   "A": "A 类私有地址",
+   "B": "B 类私有地址",
+   "C": "B 类公网地址",
+   "D": "C 类地址"
+  },
+  "answer": "B",
+  "analysis": "B 类范围 128~191，私有段 172.16~172.31；172.20 落在其中，是 B 类私有地址。"
+ },
+ {
+  "id": "x-ch11-008",
+  "chapter": "ch11",
+  "knowledge": "DHCP 过程",
+  "difficulty": 2,
+  "stem": "DHCP 客户端获取 IP 的四步报文顺序是（ ）。",
+  "options": {
+   "A": "Offer→Discover→Request→ACK",
+   "B": "Discover→Offer→Request→ACK",
+   "C": "Request→Discover→ACK→Offer",
+   "D": "Discover→Request→Offer→ACK"
+  },
+  "answer": "B",
+  "analysis": "发现（广播）→提供→请求→确认；租期 50% 时单播 Request 续租。"
+ },
+ {
+  "id": "x-ch11-009",
+  "chapter": "ch11",
+  "knowledge": "IPv6",
+  "difficulty": 2,
+  "stem": "关于 IPv6，下列说法错误的是（ ）。",
+  "options": {
+   "A": "地址长度 128 位",
+   "B": "使用冒号十六进制表示",
+   "C": "保留了广播地址类型",
+   "D": "支持地址自动配置"
+  },
+  "answer": "C",
+  "analysis": "IPv6 取消广播，改为组播与任播；`::` 零压缩只能出现一次。"
+ },
+ {
+  "id": "x-ch11-010",
+  "chapter": "ch11",
+  "knowledge": "VLAN",
+  "difficulty": 2,
+  "stem": "在交换机上划分 VLAN 后，不同 VLAN 之间通信需要（ ）。",
+  "options": {
+   "A": "集线器",
+   "B": "三层设备（路由器/三层交换机）",
+   "C": "中继器",
+   "D": "网桥"
+  },
+  "answer": "B",
+  "analysis": "VLAN 隔离广播域，VLAN 间是不同网段，必须经三层路由。"
+ },
+ {
+  "id": "x-ch11-011",
+  "chapter": "ch11",
+  "knowledge": "邮件协议",
+  "difficulty": 1,
+  "stem": "用户使用客户端把邮件发送到发送服务器，采用的协议是（ ）。",
+  "options": {
+   "A": "POP3",
+   "B": "IMAP4",
+   "C": "SMTP",
+   "D": "MIME"
+  },
+  "answer": "C",
+  "analysis": "发送链路（客户端→SMTP服务器、服务器间中转）都用 SMTP；POP3/IMAP 用于收取。"
+ },
+ {
+  "id": "x-ch11-012",
+  "chapter": "ch11",
+  "knowledge": "网络安全协议",
+  "difficulty": 2,
+  "stem": "HTTPS 在传输层与应用层之间加入的安全层是（ ）。",
+  "options": {
+   "A": "SSL/TLS",
+   "B": "IPSec",
+   "C": "SSH",
+   "D": "SET"
+  },
+  "answer": "A",
+  "analysis": "HTTPS = HTTP over SSL/TLS（默认 443），提供加密与服务器身份认证。"
+ },
+ {
+  "id": "x-ch12-001",
+  "chapter": "ch12",
+  "knowledge": "加密算法",
+  "difficulty": 2,
+  "stem": "下列算法中，属于对称加密算法的是（ ）。",
+  "options": {
+   "A": "RSA",
+   "B": "ECC",
+   "C": "AES",
+   "D": "SHA-256"
+  },
+  "answer": "C",
+  "analysis": "AES 是对称分组密码；RSA/ECC 非对称；SHA-256 是摘要函数。"
+ },
+ {
+  "id": "x-ch12-002",
+  "chapter": "ch12",
+  "knowledge": "数字签名",
+  "difficulty": 3,
+  "stem": "甲向乙发送消息并附数字签名，乙验证签名应使用（ ）。",
+  "options": {
+   "A": "甲的公钥",
+   "B": "甲的私钥",
+   "C": "乙的公钥",
+   "D": "乙的私钥"
+  },
+  "answer": "A",
+  "analysis": "甲用甲的私钥签名，任何人（包括乙）用甲的公钥验证；乙的密钥对只用于对乙的通信加解密。"
+ },
+ {
+  "id": "x-ch12-003",
+  "chapter": "ch12",
+  "knowledge": "报文摘要",
+  "difficulty": 2,
+  "stem": "数字签名前先对报文做摘要的主要目的是（ ）。",
+  "options": {
+   "A": "压缩报文便于加密",
+   "B": "提高签名效率并保证完整性",
+   "C": "加密报文内容",
+   "D": "隐藏发送者身份"
+  },
+  "answer": "B",
+  "analysis": "摘要定长且不可逆，签摘要比签全文快；比对摘要即可发现篡改（完整性）。"
+ },
+ {
+  "id": "x-ch12-004",
+  "chapter": "ch12",
+  "knowledge": "数字证书",
+  "difficulty": 2,
+  "stem": "数字证书由 CA 签发，验证证书有效性应使用（ ）。",
+  "options": {
+   "A": "用户的公钥",
+   "B": "CA 的公钥",
+   "C": "CA 的私钥",
+   "D": "用户的私钥"
+  },
+  "answer": "B",
+  "analysis": "证书是 CA 用自己私钥签名的'身份-公钥'绑定信息，验证用 CA 公钥。"
+ },
+ {
+  "id": "x-ch12-005",
+  "chapter": "ch12",
+  "knowledge": "攻击识别",
+  "difficulty": 2,
+  "stem": "攻击者把截获的合法转账请求原样重发以牟利，这种攻击是（ ）。",
+  "options": {
+   "A": "重放攻击",
+   "B": "中间人攻击",
+   "C": "拒绝服务",
+   "D": "钓鱼"
+  },
+  "answer": "A",
+  "analysis": "重放攻击的有效对策：时间戳、一次性随机数（nonce）、会话序号。"
+ },
+ {
+  "id": "x-ch12-006",
+  "chapter": "ch12",
+  "knowledge": "SQL注入",
+  "difficulty": 2,
+  "stem": "下列防御 SQL 注入的措施中，最有效的是（ ）。",
+  "options": {
+   "A": "关闭数据库日志",
+   "B": "使用参数化查询（预编译语句）",
+   "C": "增加 Web 服务器带宽",
+   "D": "压缩网页体积"
+  },
+  "answer": "B",
+  "analysis": "参数化查询让输入永不作为 SQL 语法执行，从根源杜绝注入；转义过滤、最小权限为辅。"
+ },
+ {
+  "id": "x-ch12-007",
+  "chapter": "ch12",
+  "knowledge": "防火墙",
+  "difficulty": 2,
+  "stem": "工作在网络层、依据 IP 与端口规则快速过滤数据包的防火墙类型是（ ）。",
+  "options": {
+   "A": "包过滤防火墙",
+   "B": "应用网关",
+   "C": "代理服务器",
+   "D": "WAF"
+  },
+  "answer": "A",
+  "analysis": "包过滤在三层查五元组，快但粗；应用网关/WAF 在应用层细粒度检查内容。"
+ },
+ {
+  "id": "x-ch12-008",
+  "chapter": "ch12",
+  "knowledge": "恶意代码",
+  "difficulty": 2,
+  "stem": "不需要宿主程序、能利用网络漏洞自我复制传播的恶意代码是（ ）。",
+  "options": {
+   "A": "文件型病毒",
+   "B": "蠕虫",
+   "C": "木马",
+   "D": "逻辑炸弹"
+  },
+  "answer": "B",
+  "analysis": "蠕虫独立程序主动传播；病毒寄生于宿主文件；木马伪装控制；逻辑炸弹条件触发。"
+ },
+ {
+  "id": "x-ch12-009",
+  "chapter": "ch12",
+  "knowledge": "安全属性",
+  "difficulty": 2,
+  "stem": "'信息未经授权不能被改变'体现的安全属性是（ ）。",
+  "options": {
+   "A": "机密性",
+   "B": "完整性",
+   "C": "可用性",
+   "D": "不可否认性"
+  },
+  "answer": "B",
+  "analysis": "完整性防篡改（摘要/签名保障）；机密性防泄露（加密）；可用性防 DoS。"
+ },
+ {
+  "id": "x-ch12-010",
+  "chapter": "ch12",
+  "knowledge": "认证技术",
+  "difficulty": 2,
+  "stem": "在用户名/口令基础上再要求输入手机动态验证码，这种认证方式属于（ ）。",
+  "options": {
+   "A": "单因子认证",
+   "B": "多因子认证",
+   "C": "生物认证",
+   "D": "匿名认证"
+  },
+  "answer": "B",
+  "analysis": "'所知（口令）+ 所持（手机）'两种因子组合，安全性显著高于单一口令。"
+ },
+ {
+  "id": "x-ch12-011",
+  "chapter": "ch12",
+  "knowledge": "数字信封",
+  "difficulty": 3,
+  "stem": "数字信封技术中，用于加密大体积数据的是（ ），用于加密该密钥的是（ ）。",
+  "options": {
+   "A": "对称密钥；接收方公钥",
+   "B": "接收方私钥；对称密钥",
+   "C": "发送方公钥；对称密钥",
+   "D": "对称密钥；发送方公钥"
+  },
+  "answer": "A",
+  "analysis": "混合加密：数据用对称密钥（快），对称密钥用接收方公钥加密（解决分发），即数字信封。"
+ },
+ {
+  "id": "x-ch12-012",
+  "chapter": "ch12",
+  "knowledge": "入侵检测",
+  "difficulty": 2,
+  "stem": "关于 IDS 与 IPS，下列说法正确的是（ ）。",
+  "options": {
+   "A": "IDS 在线阻断攻击流量",
+   "B": "IPS 旁路检测只报警",
+   "C": "IDS 旁路检测报警，IPS 在线阻断",
+   "D": "两者功能完全相同"
+  },
+  "answer": "C",
+  "analysis": "IDS（检测系统）旁路告警不阻断；IPS（防御系统）串联在线，实时阻断。"
+ },
+ {
+  "id": "x-ch13-001",
+  "chapter": "ch13",
+  "knowledge": "著作权归属",
+  "difficulty": 2,
+  "stem": "甲公司委托乙公司开发管理软件，合同未约定著作权归属，该软件著作权归（ ）。",
+  "options": {
+   "A": "甲公司",
+   "B": "乙公司",
+   "C": "甲乙共同",
+   "D": "登记机关"
+  },
+  "answer": "B",
+  "analysis": "委托开发无约定归受托方（乙）；甲可依合同目的使用。"
+ },
+ {
+  "id": "x-ch13-002",
+  "chapter": "ch13",
+  "knowledge": "保护期",
+  "difficulty": 2,
+  "stem": "自然人的软件著作权中，保护期不受限制的权利是（ ）。",
+  "options": {
+   "A": "发表权",
+   "B": "复制权",
+   "C": "署名权",
+   "D": "信息网络传播权"
+  },
+  "answer": "C",
+  "analysis": "署名权、修改权、保护作品完整权永久保护；发表权与财产权为终生加死后 50 年。"
+ },
+ {
+  "id": "x-ch13-003",
+  "chapter": "ch13",
+  "knowledge": "专利",
+  "difficulty": 2,
+  "stem": "实用新型专利的保护期是（ ）。",
+  "options": {
+   "A": "10 年",
+   "B": "15 年",
+   "C": "20 年",
+   "D": "50 年"
+  },
+  "answer": "A",
+  "analysis": "发明 20 年、实用新型 10 年、外观设计 15 年（自申请日起算）。"
+ },
+ {
+  "id": "x-ch13-004",
+  "chapter": "ch13",
+  "knowledge": "商标",
+  "difficulty": 2,
+  "stem": "注册商标的有效期为 10 年，期满后（ ）。",
+  "options": {
+   "A": "不能续展",
+   "B": "可续展一次",
+   "C": "可无限次续展",
+   "D": "自动失效"
+  },
+  "answer": "C",
+  "analysis": "商标每 10 年可续展且次数不限，是唯一可无限延长的知识产权。"
+ },
+ {
+  "id": "x-ch13-005",
+  "chapter": "ch13",
+  "knowledge": "职务作品",
+  "difficulty": 2,
+  "stem": "程序员小王在职期间为公司开发的软件，其软件著作权归（ ）。",
+  "options": {
+   "A": "小王",
+   "B": "公司",
+   "C": "小王与公司共同",
+   "D": "小王署名权归公司"
+  },
+  "answer": "B",
+  "analysis": "职务开发（利用单位物质技术条件、本职任务）著作权归单位，小王仅保留署名权。"
+ },
+ {
+  "id": "x-ch13-006",
+  "chapter": "ch13",
+  "knowledge": "标准化",
+  "difficulty": 2,
+  "stem": "GB/T 8567 中的 'GB/T' 表示（ ）。",
+  "options": {
+   "A": "强制性国家标准",
+   "B": "推荐性国家标准",
+   "C": "行业标准",
+   "D": "国际标准"
+  },
+  "answer": "B",
+  "analysis": "/T 表示推荐性（自愿采用），不带 /T 的 GB 为强制性标准。"
+ },
+ {
+  "id": "x-ch13-007",
+  "chapter": "ch13",
+  "knowledge": "软件保护条例",
+  "difficulty": 3,
+  "stem": "某公司不知情购买了盗版软件并安装使用，发现后其正确做法是（ ）。",
+  "options": {
+   "A": "继续使用，不承担任何责任",
+   "B": "停止使用并销毁，或支付合理费用后继续使用",
+   "C": "转卖给他人",
+   "D": "自行反编译后重装"
+  },
+  "answer": "B",
+  "analysis": "善意使用者停止使用即可免责；因销毁损失重大时可在支付合理费用后继续使用（软件保护条例第 30 条）。"
+ },
+ {
+  "id": "x-ch13-008",
+  "chapter": "ch13",
+  "knowledge": "商业秘密",
+  "difficulty": 2,
+  "stem": "关于商业秘密，下列说法正确的是（ ）。",
+  "options": {
+   "A": "需要登记才能获得保护",
+   "B": "保护期固定为 20 年",
+   "C": "只要保持秘密状态即可长期保护",
+   "D": "被他人反向工程后仍可追责"
+  },
+  "answer": "C",
+  "analysis": "商业秘密无需登记、无固定期限，但一旦公开或被合法反向工程即丧失保护。"
+ },
+ {
+  "id": "x-ch13-009",
+  "chapter": "ch13",
+  "knowledge": "著作权取得",
+  "difficulty": 1,
+  "stem": "中国公民开发完成一款软件后，其著作权（ ）。",
+  "options": {
+   "A": "自开发完成之日起自动产生",
+   "B": "须登记后产生",
+   "C": "须发表后产生",
+   "D": "须申请审批后产生"
+  },
+  "answer": "A",
+  "analysis": "著作权自动保护原则：创作完成即享有，登记仅是初步证据。"
+ },
+ {
+  "id": "x-ch13-010",
+  "chapter": "ch13",
+  "knowledge": "专利申请原则",
+  "difficulty": 2,
+  "stem": "甲比乙早一日就相同的发明创造向国务院专利行政部门提出专利申请，则（ ）。",
+  "options": {
+   "A": "甲获得专利申请权",
+   "B": "乙获得专利申请权",
+   "C": "两人共同享有",
+   "D": "均不授予"
+  },
+  "answer": "A",
+  "analysis": "专利遵循先申请原则：两个以上申请人分别就同样的发明创造申请专利的，专利权授予最先申请的人。"
+ },
+ {
+  "id": "x-ch13-011",
+  "chapter": "ch13",
+  "knowledge": "知识产权综合",
+  "difficulty": 3,
+  "stem": "某软件已登记著作权并注册商标，则该公司（ ）。",
+  "options": {
+   "A": "同时自动享有专利权",
+   "B": "不享有专利权，除非另行申请并获得授权",
+   "C": "软件可以申请外观设计专利",
+   "D": "商标权保护期 20 年"
+  },
+  "answer": "B",
+  "analysis": "专利权不随著作权/商标权自动产生；软件一般申请发明专利，外观设计不适用于纯代码。"
+ },
+ {
+  "id": "x-ch13-012",
+  "chapter": "ch13",
+  "knowledge": "标准分级",
+  "difficulty": 1,
+  "stem": "由国务院有关行政主管部门制定并报国务院标准化行政主管部门备案的标准是（ ）。",
+  "options": {
+   "A": "国家标准",
+   "B": "行业标准",
+   "C": "地方标准",
+   "D": "企业标准"
+  },
+  "answer": "B",
+  "analysis": "行业标准（如 SJ/T、JR/T）由行业主管部门制定；企业标准代号 Q/。"
+ },
+ {
+  "id": "x-ch14-001",
+  "chapter": "ch14",
+  "knowledge": "命题逻辑",
+  "difficulty": 2,
+  "stem": "命题 P→Q 为假的条件是（ ）。",
+  "options": {
+   "A": "P 真 Q 真",
+   "B": "P 真 Q 假",
+   "C": "P 假 Q 真",
+   "D": "P 假 Q 假"
+  },
+  "answer": "B",
+  "analysis": "蕴含只在'前件真后件假'时为假，其余全真——这是逻辑题的基本功。"
+ },
+ {
+  "id": "x-ch14-002",
+  "chapter": "ch14",
+  "knowledge": "德摩根律",
+  "difficulty": 2,
+  "stem": "¬(P ∧ Q) 等价于（ ）。",
+  "options": {
+   "A": "¬P ∧ ¬Q",
+   "B": "¬P ∨ ¬Q",
+   "C": "P ∨ Q",
+   "D": "¬P → Q"
+  },
+  "answer": "B",
+  "analysis": "德摩根律：与的非 = 非的或。"
+ },
+ {
+  "id": "x-ch14-003",
+  "chapter": "ch14",
+  "knowledge": "组合计数",
+  "difficulty": 3,
+  "stem": "某班 10 名同学两两互赠贺卡（每人给其他人各一张），共需贺卡（ ）张。",
+  "options": {
+   "A": "45",
+   "B": "90",
+   "C": "100",
+   "D": "10"
+  },
+  "answer": "B",
+  "analysis": "有方向：A(10,2)=10×9=90；若两两握手（无方向）才是 C(10,2)=45。"
+ },
+ {
+  "id": "x-ch14-004",
+  "chapter": "ch14",
+  "knowledge": "鸽巢原理",
+  "difficulty": 2,
+  "stem": "某校一个班级至少有（ ）名学生时，才能保证存在两人同一天过生日（按公历 366 天计）。",
+  "options": {
+   "A": "366",
+   "B": "367",
+   "C": "365",
+   "D": "183"
+  },
+  "answer": "B",
+  "analysis": "鸽巢原理：n+1 个鸽子放进 n 个巢必有两人同巢，367 人保证生日重复。"
+ },
+ {
+  "id": "x-ch14-005",
+  "chapter": "ch14",
+  "knowledge": "线性规划",
+  "difficulty": 2,
+  "stem": "线性规划问题的最优解一定可以在可行域的（ ）取得。",
+  "options": {
+   "A": "内部任意点",
+   "B": "顶点（极点）",
+   "C": "边界中点",
+   "D": "外部"
+  },
+  "answer": "B",
+  "analysis": "目标函数是线性函数，最值在凸多边形可行域的顶点处取得（图解法）。"
+ },
+ {
+  "id": "x-ch14-006",
+  "chapter": "ch14",
+  "knowledge": "专业英语",
+  "difficulty": 2,
+  "stem": "In object-oriented programming, ( ) allows objects of different classes to respond to the same message differently.",
+  "options": {
+   "A": "encapsulation",
+   "B": "polymorphism",
+   "C": "inheritance",
+   "D": "iteration"
+  },
+  "answer": "B",
+  "analysis": "'same message…differently' 是多态（polymorphism）的定义；封装是信息隐藏，继承是复用机制。"
+ },
+ {
+  "id": "x-ch14-007",
+  "chapter": "ch14",
+  "knowledge": "专业英语",
+  "difficulty": 2,
+  "stem": "A ( ) is a reusable solution to a commonly occurring problem in software design.",
+  "options": {
+   "A": "design pattern",
+   "B": "database schema",
+   "C": "compiler",
+   "D": "firewall"
+  },
+  "answer": "A",
+  "analysis": "'reusable solution to a commonly occurring problem' 是设计模式的标准定义句。"
+ },
+ {
+  "id": "x-ch14-008",
+  "chapter": "ch14",
+  "knowledge": "专业英语",
+  "difficulty": 3,
+  "stem": "The ( ) protocol provides reliable, connection-oriented transport between two hosts.",
+  "options": {
+   "A": "UDP",
+   "B": "TCP",
+   "C": "IP",
+   "D": "ICMP"
+  },
+  "answer": "B",
+  "analysis": "'reliable, connection-oriented' 是 TCP 的关键词；UDP 无连接，IP 是网络层，ICMP 报差错。"
+ },
+ {
+  "id": "x-ch14-009",
+  "chapter": "ch14",
+  "knowledge": "专业英语",
+  "difficulty": 3,
+  "stem": "Data ( ) is the process of organizing data to reduce redundancy and improve data integrity.",
+  "options": {
+   "A": "mining",
+   "B": "normalization",
+   "C": "encryption",
+   "D": "compression"
+  },
+  "answer": "B",
+  "analysis": "'reduce redundancy'（消除冗余）指向数据库规范化（normalization）。"
+ },
+ {
+  "id": "x-ch14-010",
+  "chapter": "ch14",
+  "knowledge": "推理规则",
+  "difficulty": 3,
+  "stem": "由 'P→Q' 与 '¬Q' 可以推出（ ）。",
+  "options": {
+   "A": "P",
+   "B": "¬P",
+   "C": "Q",
+   "D": "无法推出"
+  },
+  "answer": "B",
+  "analysis": "拒取式：P→Q 与 ¬Q 得 ¬P（逆否等价式的推理应用）。"
+ },
+ {
+  "id": "x-ch14-011",
+  "chapter": "ch14",
+  "knowledge": "排列组合",
+  "difficulty": 3,
+  "stem": "从 5 门选修课中选 3 门（顺序无关），选法总数为（ ）。",
+  "options": {
+   "A": "60",
+   "B": "20",
+   "C": "10",
+   "D": "125"
+  },
+  "answer": "C",
+  "analysis": "C(5,3) = 10；若考虑选择顺序才是 A(5,3)=60。"
+ },
+ {
+  "id": "x-ch14-012",
+  "chapter": "ch14",
+  "knowledge": "专业英语",
+  "difficulty": 2,
+  "stem": "A ( ) firewall examines each packet against a set of rules and filters traffic at the network layer.",
+  "options": {
+   "A": "packet-filtering",
+   "B": "proxy",
+   "C": "application-gateway",
+   "D": "stateful"
+  },
+  "answer": "A",
+  "analysis": "'examines each packet…network layer' 是包过滤防火墙的描述；应用网关工作在应用层。"
+ }
+]

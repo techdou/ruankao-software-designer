@@ -1,0 +1,70 @@
+[
+{
+"id": "c-dfd-01",
+"caseType": "dfd",
+"term": "模拟",
+"title": "试题一 · 数据流图（在线订餐系统）",
+"background": "某餐饮企业拟开发在线订餐系统，主要功能描述如下：\n\n（1）顾客浏览菜单后提交订单，系统校验订单信息，将有效订单存入订单文件，并向顾客返回订单确认信息。\n（2）系统将订单发送给对应餐厅，餐厅接单后开始备餐，并将出餐状态回传系统。\n（3）顾客支付时，系统将支付请求发送给第三方支付平台，支付平台完成扣款后返回支付结果；系统根据支付结果更新订单状态。\n（4）餐厅每天向系统上报菜品库存，系统更新菜品文件；顾客浏览菜单时，系统根据菜品文件生成菜单返回给顾客。\n\n【图】顶层数据流图中只有'顾客、餐厅、第三方支付平台'三个外部实体与'在线订餐系统'一个加工。",
+"subQuestions": [
+{"no": 1, "stem": "使用说明中的词语，给出 0 层数据流图中的外部实体（全部）。\n提示：与系统交换数据的系统之外的组织或系统。", "answer": "顾客、餐厅、第三方支付平台。", "analysis": "外部实体是系统之外与系统交互的人或系统。注意'支付平台'是外部系统，不是本系统的加工。"},
+{"no": 2, "stem": "使用说明中的词语，给出 0 层数据流图中的数据存储（全部）。", "answer": "订单文件、菜品文件。", "analysis": "说明中出现'存入订单文件''更新菜品文件'，即两个数据存储；'订单状态'是属性不是存储。"},
+{"no": 3, "stem": "补充缺失的数据流：'校验订单信息'加工需要哪些输入数据流？其名称来自说明中的哪些词？", "answer": "订单（来自顾客提交的订单）；菜品信息（来自菜品文件，用于校验菜品是否有效/在售）。", "analysis": "校验需要被校验的对象（订单）和校验依据（菜品文件的菜品信息）。很多考生漏掉从数据存储读取的校验依据流。"},
+{"no": 4, "stem": "指出说明（3）中'支付结果'数据流的起点和终点。", "answer": "起点：第三方支付平台；终点：系统中的'处理支付'（更新订单状态）加工。", "analysis": "外部实体→系统加工的数据流，方向由说明'支付平台…返回支付结果'决定。"}
+]
+},
+{
+"id": "c-db-01",
+"caseType": "db",
+"term": "模拟",
+"title": "试题二 · 数据库设计（图书借阅系统）",
+"background": "某高校图书馆拟设计图书借阅数据库。\n\n需求描述：\n（1）记录图书信息：图书编号、书名、作者、出版社、库存量。一种图书可有多个馆藏副本，每个副本有唯一的条形码号与位置。\n（2）读者信息：读者编号、姓名、类别（学生/教师）。不同类别可借册数不同。\n（3）读者借阅副本，一次借阅记录借出日期与应还日期；归还时记录归还日期。\n（4）一个读者可同时借阅多个副本，一个副本同一时刻只能被一个读者借出。\n\n某设计师将'读者'与'副本'之间的借阅联系设计为 1:n，另一设计师认为应为 m:n。",
+"subQuestions": [
+{"no": 1, "stem": "借阅联系的正确类型是什么？说明理由。", "answer": "m:n（多对多）。一个读者可同时借多个副本；一个副本在时间维度上可被多个读者先后借阅（且需求中借阅需记录借出/应还/归还日期，属于联系属性）。", "analysis": "判断关键在'一个副本同一时刻只能被一个读者借出'——'同一时刻'限定了并发，但历史维度上一个副本对应多个读者，故为 m:n。"},
+{"no": 2, "stem": "给出'读者''副本'两个实体的关系模式（下划线表示主键）。", "answer": "读者(<u>读者编号</u>, 姓名, 类别)；副本(<u>条形码号</u>, 图书编号, 位置)，其中图书编号为外键引用图书。", "analysis": "图书与副本是 1:n，副本并入 n 端并携带图书的主键作外键；条形码号唯一标识副本实体。"},
+{"no": 3, "stem": "将借阅联系转换为关系模式，指出其主键与外键。", "answer": "借阅(<u>读者编号, 条形码号, 借出日期</u>, 应还日期, 归还日期)。主键为(读者编号, 条形码号, 借出日期)；外键：读者编号→读者，条形码号→副本。", "analysis": "m:n 联系转换成独立关系模式，主键=两端实体主键组合；因同一读者可先后多次借同一副本，需加'借出日期'保证元组唯一。"},
+{"no": 4, "stem": "用 SQL 创建视图 v_overdue，输出所有超期未还（应还日期早于当前日期 CURRENT_DATE 且归还日期为空）的读者编号与条形码号。", "answer": "CREATE VIEW v_overdue AS\nSELECT 读者编号, 条形码号\nFROM 借阅\nWHERE 应还日期 < CURRENT_DATE AND 归还日期 IS NULL;", "analysis": "考查视图创建与空值判断：'未归还'用归还日期 IS NULL，不能用 = NULL。"}
+]
+},
+{
+"id": "c-uml-01",
+"caseType": "uml",
+"term": "模拟",
+"title": "试题三 · UML 与设计模式（咖啡机订单）",
+"background": "某智能咖啡机系统支持多种饮品（美式、拿铁、摩卡），并可在订单上动态追加配料（糖、牛奶、双份浓缩），追加配料的种类与次数不固定，每次追加需在原价格上叠加。\n\n设计师给出了如下类图（文字描述）：\n\n- 抽象类 Beverage（饮料），声明方法 cost():double 和 desc():String；\n- 类 Americano、Latte、Mocha 继承 Beverage，各自实现 cost 与 desc；\n- 抽象类 CondimentDecorator 继承 Beverage，并**持有**一个 Beverage 类型的成员变量 beverage；\n- 类 Sugar、Milk、DoubleEspresso 继承 CondimentDecorator，实现中先调用 beverage 的方法再叠加自身。"
+,
+"subQuestions": [
+{"no": 1, "stem": "该设计采用了哪种设计模式？写出模式名并说明其意图。", "answer": "装饰器（Decorator）模式。意图：动态地给对象添加额外的职责，比继承更灵活。", "analysis": "'动态追加、次数不固定、叠加'是装饰器的识别关键词；通过组合（持有 Beverage）实现层层包裹。"},
+{"no": 2, "stem": "CondimentDecorator 与 Beverage 之间同时存在哪两种关系？各自的 UML 名称是什么？", "answer": "泛化（继承）关系——CondimentDecorator is-a Beverage；依赖/关联（聚合性质）关系——其成员变量 beverage 是 has-a 组合引用。", "analysis": "装饰器同时'是一个饮料'（为了类型一致）并'持有一个饮料'（为了委托调用），这是该模式结构上的特点。"},
+{"no": 3, "stem": "补全 Milk 类 cost() 方法的实现（Java）：return ______;", "answer": "return beverage.cost() + 2.0;（在委托被装饰对象价格之上叠加牛奶价格）", "analysis": "装饰器的 cost 实现 = 委托 beverage.cost() + 自身价格；desc 同理拼接描述。"},
+{"no": 4, "stem": "若改为'每杯饮品固定搭配一份糖和一份牛奶，构造时一次性指定'，用（ ）模式更贴切；若顾客需要运行时在多种支付算法间切换则用（ ）模式。", "answer": "生成器（Builder）；策略（Strategy）。", "analysis": "分步构建固定流程产出不同表示用生成器；算法族运行时替换用策略。注意区分装饰器（叠加职责、次数不定）与生成器（分步构建）。"}
+]
+},
+{
+"id": "c-algo-01",
+"caseType": "algo",
+"term": "模拟",
+"title": "试题四 · 算法设计（最长递增子序列）",
+"background": "问题描述：给定序列 a[1..n]，求其最长严格递增子序列（LIS）的长度。例如序列 (3, 1, 4, 1, 5, 9, 2, 6) 的 LIS 为 (1, 4, 5, 9) 或 (1, 4, 5, 6)，长度为 4。\n\n动态规划解法：令 dp[i] 表示以 a[i] 结尾的最长递增子序列长度，则有：\n\n```c\nint lis(int a[], int n) {\n    int dp[100], best = 0;\n    for (int i = 0; i < n; i++) {\n        dp[i] = 1;                        // 空①\n        for (int j = 0; j < i; j++) {\n            if (a[j] < a[i] && dp[j] + 1 > dp[i])\n                dp[i] = dp[j] + 1;        // 空②\n        }\n        if (dp[i] > best) best = dp[i];   // 空③\n    }\n    return best;\n}\n```"
+,
+"subQuestions": [
+{"no": 1, "stem": "该算法采用的算法设计策略是（ ），判断依据的两个性质是什么？", "answer": "动态规划；依据：最优子结构（LIS 的子序列仍是子问题的 LIS）与重叠子问题（同一 dp[j] 被多个 i 复用）。", "analysis": "识别 DP 的标准判据；本题 dp[i] 由所有 j<i 的 dp[j] 推出，是典型的线性 DP。"},
+{"no": 2, "stem": "空①处 `dp[i] = 1;` 的含义是什么？", "answer": "初始化：只包含 a[i] 自身的子序列长度为 1，即任何位置单独成序列都是合法递增子序列。", "analysis": "DP 初始化常考语义：dp[i] 至少为 1，后续由更优转移覆盖。"},
+{"no": 3, "stem": "空②处状态转移方程的数学形式是什么？", "answer": "dp[i] = max(dp[i], dp[j] + 1)，其中 0 ≤ j < i 且 a[j] < a[i]。", "analysis": "所有能接到 a[i] 前面的位置中取最长者再加 1。"},
+{"no": 4, "stem": "该算法的时间复杂度为（ ）？若将内层查找改用二分（维护单调数组），复杂度可降为（ ）。", "answer": "O(n²)；O(n log n)。", "analysis": "双重循环为 O(n²)；贪心+二分（tail 数组）是经典优化，注意两种解法策略不同。"}
+]
+},
+{
+"id": "c-pat-01",
+"caseType": "pattern",
+"term": "模拟",
+"title": "试题六 · 设计模式（商场促销通知）",
+"background": "某商场系统中，价格调整或促销活动开始时，需要自动通知已订阅的顾客 App、收银 POS 与库存系统。\n\n类图（文字描述）：\n\n- 接口 Observer 声明方法 update(double price)；\n- 类 CustomerApp、POS、InventorySystem 实现 Observer，各自实现 update；\n- 抽象类 Subject 持有 `List<Observer> observers`，声明 attach(Observer)、detach(Observer)、notifyAll(price)；\n- 类 PriceBoard 继承 Subject，当价格变化时调用 notifyAll。\n\nJava 代码骨架：\n```java\nabstract class Subject {\n    protected List<Observer> observers = new ArrayList<>();\n    public void attach(Observer o) { observers.add(o); }   // 空①\n    public void notifyAll(double price) {\n        for (Observer o : observers)\n            (空②).update(price);\n    }\n}\nclass PriceBoard extends Subject {\n    public void changePrice(double p) { (空③); }           // 价格变化即通知\n}\n```"
+,
+"subQuestions": [
+{"no": 1, "stem": "该设计采用的设计模式是（ ）？属于创建型、结构型还是行为型？", "answer": "观察者（Observer）模式；行为型对象模式。", "analysis": "一对多依赖、状态变化自动通知全部依赖者——观察者模式的标准定义；它关注对象间职责与通信，属行为型。"},
+{"no": 2, "stem": "空①的 attach 方法在模式中对应的角色名是什么？其作用是（ ）。", "answer": "Attach/Register（注册/订阅）角色方法；把观察者加入主题的观察者集合，使其能接收通知。", "analysis": "观察者模式的 Subject 角色：attach/detach/notify；Observer 角色：update。"},
+{"no": 3, "stem": "补全空②：", "answer": "o.update(price) —— 遍历集合对每个观察者调用 update 通知。", "analysis": "notify 遍历并调用统一的更新接口，观察者各自实现差异化响应。"},
+{"no": 4, "stem": "空③应填（ ）；若通知过程中某个观察者 update 抛出异常导致后续观察者收不到通知，应如何改进？", "answer": "notifyAll(p)；在 notify 循环内对每个 update 调用做 try/catch（或异步投递/消息队列），保证一个观察者失败不影响其他观察者。", "analysis": "考查模式实现健壮性：同步遍历中异常会中断通知链，需隔离异常或改异步。"}
+]
+}
+]

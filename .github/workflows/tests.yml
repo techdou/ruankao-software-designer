@@ -1,0 +1,61 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-bank:
+    name: 题库结构校验
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate question bank
+        run: python scripts/validate_bank.py
+
+  build-and-smoke:
+    name: 构建与交互冒烟测试
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install frontend deps
+        working-directory: app
+        run: npm ci
+
+      - name: Type check & build
+        working-directory: app
+        run: npm run build
+
+      - name: Install Playwright chromium
+        run: |
+          pip install playwright
+          playwright install chromium --with-deps
+
+      - name: Start preview server
+        working-directory: app
+        run: |
+          nohup npm run preview -- --port 4173 --strictPort > preview.log 2>&1 &
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:4173/ > /dev/null && break
+            sleep 1
+          done
+          curl -sf http://localhost:4173/ > /dev/null
+
+      - name: Run smoke tests
+        run: python scripts/smoke.py

@@ -1,0 +1,36 @@
+# ---------- 依赖与构建产物 ----------
+node_modules/
+dist/
+*.local
+.npm
+*.tsbuildinfo
+
+# ---------- 密钥与凭证（严禁入库）----------
+.env
+.env.*
+*.key
+*.pem
+**/credentials*.json
+secrets/
+
+# ---------- 第三方参考内容（版权与体积考虑，不入库）----------
+# refs/ 内含克隆的第三方仓库与真题 PDF 合集，仅本地查阅
+refs/
+
+# ---------- 内部文档与开发状态（不公开）----------
+DESIGN.md
+scripts/patches/
+scripts/parse_report.txt
+scripts/shots/
+scripts/__pycache__/
+__pycache__/
+*.pyc
+assets-src/
+/tmp/
+
+# ---------- 编辑器与系统 ----------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log

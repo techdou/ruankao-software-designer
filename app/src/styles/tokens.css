@@ -1,0 +1,26 @@
+/* 设计令牌：纸墨 + 松绿，克制用阴影与圆角 */
+:root {
+  --bg: #faf9f6;
+  --surface: #ffffff;
+  --ink: #201f1c;
+  --ink-2: #64615a;
+  --ink-3: #98948b;
+  --line: #e6e2d8;
+
+  --accent: #2d6a4f;        /* 松绿 */
+  --accent-weak: #e8f1ec;
+  --accent-2: #b45309;      /* 赭石（警示/火） */
+  --accent-2-weak: #fdf1e3;
+  --danger: #b0413e;
+  --danger-weak: #fbeeed;
+  --ok: #2d6a4f;
+  --ok-weak: #e8f1ec;
+
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow: 0 1px 2px rgb(32 31 28 / 0.06), 0 4px 14px rgb(32 31 28 / 0.07);
+
+  --font-body: -apple-system, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+  --font-serif: Georgia, "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
+  --font-mono: "Cascadia Code", Consolas, "Courier New", monospace;
+}
