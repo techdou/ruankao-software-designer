@@ -83,12 +83,20 @@ def squeeze_inline(seg: str, letters: str = "ABCD", assume_first_A: bool = False
 
 
 def squeeze_any(seg: str) -> dict[str, str]:
-    """每行一个选项优先，不足 4 个再回退行内混排。"""
+    """每行一个选项优先，不足 4 个再回退行内混排。
+    对所有选项文本截断到答案/解析标记——2020/2022 卷的解析紧跟 D 选项，
+    不截断会把 '参考答案：X 解析：…' 整段吞进 D 选项文本。"""
     opts = squeeze_lines(seg)
-    if len(opts) == 4:
-        return opts
-    mixed = squeeze_inline(seg)
-    return mixed if len(mixed) > len(opts) else opts
+    if len(opts) != 4:
+        mixed = squeeze_inline(seg)
+        if len(mixed) > len(opts):
+            opts = mixed
+    ans_mark = re.compile(r"(参考答案[：:]|答案[：:]|解析\s*[:：]|历年相关试题|试题相关\s*【)")
+    for k in opts:
+        m = ans_mark.search(opts[k])
+        if m:
+            opts[k] = opts[k][: m.start()].rstrip()
+    return opts
 
 
 def squeeze_lines(seg: str) -> dict[str, str]:

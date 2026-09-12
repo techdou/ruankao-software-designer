@@ -16,6 +16,9 @@ const random = ref(false)
 const session = ref<string[]>([])
 const cur = ref(0)
 const started = ref(false)
+const sheetOpen = ref(false)
+const segIdx = ref(0)
+const SEG = 50
 
 watch(
   () => route.query.chapter,
@@ -38,10 +41,14 @@ function start() {
   const list = pool.value
   session.value = random.value ? shuffle(list.map((q) => q.id)) : list.map((q) => q.id)
   cur.value = 0
+  segIdx.value = 0
   started.value = session.value.length > 0
 }
 
 const questions = computed(() => session.value.map((id) => PLAYABLE.find((q) => q.id === id)!))
+const segQuestions = computed(() =>
+  questions.value.slice(segIdx.value * SEG, (segIdx.value + 1) * SEG),
+)
 const q = computed(() => questions.value[cur.value])
 
 const sessionStat = computed(() => {
@@ -52,12 +59,13 @@ const sessionStat = computed(() => {
 
 function jump(i: number) {
   cur.value = i
+  segIdx.value = Math.floor(i / SEG)
 }
 function nextQ() {
-  if (cur.value < questions.value.length - 1) cur.value++
+  if (cur.value < questions.value.length - 1) jump(cur.value + 1)
 }
 function prevQ() {
-  if (cur.value > 0) cur.value--
+  if (cur.value > 0) jump(cur.value - 1)
 }
 </script>
 
@@ -90,18 +98,29 @@ function prevQ() {
           <span>本组：{{ sessionStat.answered }}/{{ questions.length }} 已做 · 对 {{ sessionStat.ok }}</span>
           <span class="muted small">{{ chapterMap.get(chapter)?.title }}</span>
         </div>
-        <div class="sheet">
-          <button
-            v-for="(qq, i) in questions"
-            :key="qq.id"
-            class="dot"
-            :class="{
-              cur: i === cur,
-              ok: archive.attempts[qq.id]?.correct,
-              bad: archive.attempts[qq.id] && !archive.attempts[qq.id].correct,
-            }"
-            @click="jump(i)"
-          >{{ i + 1 }}</button>
+        <div class="bar"><div class="bar-fill" :style="{ width: (sessionStat.answered / Math.max(1, questions.length)) * 100 + '%' }" /></div>
+        <button class="sheettoggle" @click="sheetOpen = !sheetOpen">
+          {{ sheetOpen ? '收起答题卡 ▲' : '展开答题卡 ▼' }}
+        </button>
+        <div v-if="sheetOpen" class="sheetwrap">
+          <div class="sheetnav">
+            <button class="navbtn" :disabled="segIdx === 0" @click="segIdx--">‹ 上一段</button>
+            <span class="small muted">第 {{ segIdx * SEG + 1 }} – {{ Math.min((segIdx + 1) * SEG, questions.length) }} 题（共 {{ questions.length }} 题）</span>
+            <button class="navbtn" :disabled="(segIdx + 1) * SEG >= questions.length" @click="segIdx++">下一段 ›</button>
+          </div>
+          <div class="sheet">
+            <button
+              v-for="(qq, i) in segQuestions"
+              :key="qq.id"
+              class="dot"
+              :class="{
+                cur: i + segIdx * SEG === cur,
+                ok: archive.attempts[qq.id]?.correct,
+                bad: archive.attempts[qq.id] && !archive.attempts[qq.id].correct,
+              }"
+              @click="jump(i + segIdx * SEG)"
+            >{{ i + segIdx * SEG + 1 }}</button>
+          </div>
         </div>
       </div>
 
@@ -123,6 +142,20 @@ function prevQ() {
 .filter button { margin-left: auto; }
 .sessionbar { margin-bottom: 14px; padding: 14px 18px; }
 .progress-line { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }
+.bar { height: 6px; background: var(--bg); border-radius: 999px; overflow: hidden; margin-bottom: 10px; }
+.bar-fill { height: 100%; background: var(--accent); border-radius: 999px; transition: width 0.2s; }
+.sheettoggle {
+  width: 100%;
+  font-size: 13px;
+  color: var(--ink-2);
+  background: var(--bg);
+  border: none;
+  padding: 6px;
+}
+.sheettoggle:hover { color: var(--accent); background: var(--accent-weak); }
+.sheetwrap { margin-top: 10px; }
+.sheetnav { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 8px; }
+.navbtn { font-size: 13px; padding: 4px 12px; }
 .sheet { display: flex; flex-wrap: wrap; gap: 5px; }
 .dot {
   min-width: 30px; height: 30px; padding: 0 4px;
