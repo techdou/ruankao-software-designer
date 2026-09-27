@@ -37,6 +37,32 @@ const pool = computed(() => {
   return list
 })
 
+// 章节速选数据：每章题量 / 已做 / 正确率
+const chapterCards = computed(() => {
+  const all = { id: 'all', title: '全部章节', total: PLAYABLE.length, done: 0, acc: null as number | null }
+  const cards = CHAPTERS.map((c) => {
+    const qs = PLAYABLE.filter((q) => q.chapter === c.id)
+    const doneQs = qs.filter((q) => archive.attempts[q.id])
+    const ok = doneQs.filter((q) => archive.attempts[q.id].correct)
+    return {
+      id: c.id,
+      title: c.title,
+      total: qs.length,
+      done: doneQs.length,
+      acc: doneQs.length ? ok.length / doneQs.length : null,
+    }
+  })
+  all.done = cards.reduce((s, c) => s + c.done, 0)
+  const okAll = PLAYABLE.filter((q) => archive.attempts[q.id]?.correct).length
+  all.acc = all.done ? okAll / all.done : null
+  return [all, ...cards]
+})
+
+function startBy(id: string) {
+  chapter.value = id
+  start()
+}
+
 function start() {
   const list = pool.value
   session.value = random.value ? shuffle(list.map((q) => q.id)) : list.map((q) => q.id)
@@ -80,7 +106,7 @@ function prevQ() {
           <option v-for="c in CHAPTERS" :key="c.id" :value="c.id">{{ c.title }}</option>
         </select>
       </label>
-      <label>范围
+      <label>作答状态
         <select v-model="status">
           <option value="all">全部</option>
           <option value="todo">未做过</option>
@@ -91,6 +117,26 @@ function prevQ() {
       <button class="primary" @click="start">开始练习（{{ pool.length }} 题）</button>
       <span class="muted small" v-if="!started && !pool.length">当前筛选没有题。</span>
     </div>
+
+    <template v-if="!started">
+      <h2 class="pickhead">章节速选</h2>
+      <div class="pickgrid">
+        <button
+          v-for="c in chapterCards"
+          :key="c.id"
+          class="pick card hoverable"
+          :class="{ active: chapter === c.id }"
+          @click="startBy(c.id)"
+        >
+          <span class="ptitle">{{ c.title }}</span>
+          <span class="pnum small muted">{{ c.total }} 题</span>
+          <span class="pstat small" :class="c.acc === null ? 'muted' : c.acc >= 0.7 ? 'oktext' : 'badtext'">
+            {{ c.done ? `已做 ${c.done} · 正确率 ${Math.round((c.acc ?? 0) * 100)}%` : '未开始' }}
+          </span>
+          <span class="pbar"><span class="pbar-fill" :style="{ width: (c.total ? c.done / c.total : 0) * 100 + '%' }" /></span>
+        </button>
+      </div>
+    </template>
 
     <template v-if="started">
       <div class="sessionbar card">
@@ -140,6 +186,19 @@ function prevQ() {
 .filter select { font: inherit; padding: 6px 10px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .chk input { accent-color: var(--accent); }
 .filter button { margin-left: auto; }
+.pickhead { margin-top: 22px; font-size: 17px; }
+.pickgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 10px; }
+@media (max-width: 900px) { .pickgrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .pickgrid { grid-template-columns: 1fr; } }
+.pick { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; text-align: left; padding: 13px 15px; }
+.pick.active { border-color: var(--accent); background: var(--accent-weak); }
+.ptitle { font-weight: 600; font-size: 14.5px; }
+.pnum { order: 2; }
+.pstat { order: 3; }
+.oktext { color: var(--ok); }
+.badtext { color: var(--danger); }
+.pbar { display: block; width: 100%; height: 4px; background: var(--bg); border-radius: 999px; overflow: hidden; margin-top: 7px; }
+.pbar-fill { display: block; height: 100%; background: var(--accent); border-radius: 999px; }
 .sessionbar { margin-bottom: 14px; padding: 14px 18px; }
 .progress-line { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }
 .bar { height: 6px; background: var(--bg); border-radius: 999px; overflow: hidden; margin-bottom: 10px; }

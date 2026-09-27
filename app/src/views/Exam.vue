@@ -151,7 +151,7 @@ const mmss = computed(() => {
 .rbody { display: flex; flex-direction: column; }
 .rrow { display: flex; align-items: baseline; gap: 8px; }
 .hero { margin: 12px 0; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
-.hero img { display: block; width: 100%; height: auto; }
+.hero img { display: block; width: 100%; height: auto; max-height: 190px; object-fit: cover; }
 .rscore { font-size: 42px; font-weight: 700; font-family: var(--font-serif); color: var(--accent); }
 .rscore-sub { color: var(--ink-2); }
 .sheet { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; padding: 12px 16px; }

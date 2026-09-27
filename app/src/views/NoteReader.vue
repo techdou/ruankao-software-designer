@@ -29,14 +29,14 @@ const parsed = computed(() => {
   return { body: m ? m[2] : raw, meta }
 })
 
-// 从标题生成目录
+// 从标题生成目录：只到节（h2）级——h3 是每节重复的"精讲/例题/易错"，进目录只有噪音
 const toc = computed(() => {
   const out: { level: number; text: string; anchor: string }[] = []
   for (const line of parsed.value.body.split('\n')) {
-    const m = line.match(/^(#{2,3})\s+(.*)$/)
+    const m = line.match(/^(#{2})\s+(.*)$/)
     if (m) {
       const text = m[2].replace(/[#*`]/g, '').trim()
-      out.push({ level: m[1].length, text, anchor: text })
+      out.push({ level: 2, text, anchor: text })
     }
   }
   return out
@@ -83,10 +83,9 @@ function goDrill() {
       <div class="small muted toc-head">本篇目录</div>
       <a
         v-for="t in toc"
-        :key="t.anchor + t.level"
+        :key="t.anchor"
         :href="`#/notes/${id}`"
         class="toc-item"
-        :class="{ l3: t.level === 3 }"
         @click.prevent="tocGo(t.anchor)"
       >{{ t.text }}</a>
     </aside>
@@ -127,7 +126,6 @@ function goDrill() {
 }
 .toc-head { margin-bottom: 6px; }
 .toc-item { display: block; padding: 3px 0; color: var(--ink-2); font-size: 13px; }
-.toc-item.l3 { padding-left: 14px; font-size: 12px; color: var(--ink-3); }
 .toc-item:hover { color: var(--accent); text-decoration: none; }
 .content { flex: 1; min-width: 0; max-height: calc(100vh - 70px); overflow-y: auto; padding-right: 6px; }
 .thead { margin-bottom: 14px; }

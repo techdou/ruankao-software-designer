@@ -51,10 +51,11 @@ const gotCount = computed(() => badges.value.filter((b) => b.got).length)
       >
         <div class="pic">
           <img v-if="b.got" :src="`./art/${b.key}.png`" :alt="b.name" loading="lazy" />
-          <div v-else class="lock">
+          <div v-else-if="b.progress > 0" class="lock">
             <div class="ring" :style="{ '--p': b.progress * 100 + '%' }" />
             <span class="pct">{{ Math.round(b.progress * 100) }}%</span>
           </div>
+          <div v-else class="lock empty" aria-label="未开始" />
         </div>
         <div class="name">{{ b.got ? b.name : '？？？' }}</div>
         <div class="desc">{{ b.desc }}</div>
@@ -79,6 +80,9 @@ const gotCount = computed(() => badges.value.filter((b) => b.got).length)
   background: var(--bg);
   border-radius: 50%;
 }
+/* 进度为 0 时不画环，用虚线圆占位，避免一排无信息量的 0% */
+.lock.empty { background: transparent; border: 2px dashed var(--line); }
+.lock.empty::after { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
 .ring {
   position: absolute; inset: 0;
   border-radius: 50%;

@@ -35,6 +35,7 @@ const daily = computed(() => {
   return days
 })
 const maxDay = computed(() => Math.max(1, ...daily.value.map((d) => d.n)))
+const hasDaily = computed(() => daily.value.some((d) => d.n > 0))
 
 const srsStages = computed(() => {
   const buckets = [0, 0, 0, 0, 0, 0, 0] // stage0..5 + 毕业
@@ -64,7 +65,7 @@ const stageNames = ['第1轮(1天)', '第2轮(2天)', '第3轮(4天)', '第4轮(
     </div>
 
     <h2>近 30 天刷题量</h2>
-    <div class="card chart">
+    <div v-if="hasDaily" class="card chart">
       <div v-for="d in daily" :key="d.date" class="col" :title="`${d.date}: ${d.n} 题`">
         <div class="stack">
           <div class="okpart" :style="{ height: maxDay ? (d.ok / maxDay) * 120 + 'px' : 0 }" />
@@ -73,7 +74,10 @@ const stageNames = ['第1轮(1天)', '第2轮(2天)', '第3轮(4天)', '第4轮(
         <span v-if="d.n" class="bub">{{ d.n }}</span>
       </div>
     </div>
-    <p class="small muted">绿=答对，红=答错；悬停柱子看日期与题数。</p>
+    <div v-else class="card charty">
+      <p class="muted" style="margin: 0">近 30 天还没有作答记录——去<a href="#/drill">刷几题</a>，这里就会长出柱子。</p>
+    </div>
+    <p v-if="hasDaily" class="small muted">绿=答对，红=答错；悬停柱子看日期与题数。</p>
 
     <h2>间隔复习分布</h2>
     <div class="card srs">
@@ -95,6 +99,7 @@ const stageNames = ['第1轮(1天)', '第2轮(2天)', '第3轮(4天)', '第4轮(
 .val { width: 110px; text-align: right; flex: none; }
 .badtext { color: var(--accent-2); }
 .chart { display: flex; align-items: flex-end; gap: 4px; height: 150px; padding: 14px 16px; }
+.charty { display: flex; align-items: center; justify-content: center; height: 96px; padding: 14px 16px; }
 .col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; height: 100%; justify-content: flex-end; position: relative; }
 .stack { display: flex; flex-direction: column; justify-content: flex-end; width: 100%; max-width: 18px; }
 .okpart { background: var(--accent); border-radius: 2px 2px 0 0; width: 100%; }

@@ -85,5 +85,6 @@ h3 { font-size: 16px; margin: 18px 0 8px; }
 .md table { border-collapse: collapse; margin: 14px 0; width: 100%; font-size: 14px; }
 .md th, .md td { border: 1px solid var(--line); padding: 7px 10px; text-align: left; }
 .md th { background: #f4f2ec; }
+.md td:first-child { white-space: nowrap; }  /* 首列是短标签，防止"运算器"竖排折行 */
 .md ul, .md ol { padding-left: 22px; }
 .md .katex { font-size: 1.05em; }

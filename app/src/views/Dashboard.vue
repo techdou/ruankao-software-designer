@@ -112,12 +112,12 @@ const notesDone = computed(
 @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
 .row { display: flex; gap: 18px; align-items: center; }
 .facts { display: grid; gap: 6px; }
-.kbig { font-size: 34px; font-weight: 700; font-family: var(--font-serif); }
+.kbig { font-size: 34px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .kbig.amber { color: var(--accent-2); }
 .linkbtn { display: inline-block; margin-top: 8px; font-weight: 600; }
 .warn { margin-top: 14px; border-left: 3px solid var(--accent-2); }
 .hero { margin: 12px 0 4px; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--surface); }
-.hero img { display: block; width: 100%; height: auto; }
+.hero img { display: block; width: 100%; height: auto; max-height: 210px; object-fit: cover; }
 .weak-item { display: inline-block; margin: 4px 14px 0 0; }
 .chlist { margin-top: 8px; }
 .chrow { display: flex; align-items: center; gap: 12px; padding: 7px 0; }

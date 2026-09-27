@@ -109,7 +109,7 @@ function submit() {
 <style scoped>
 .paperlist { display: grid; gap: 12px; margin-top: 16px; }
 .hero { margin: 12px 0; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
-.hero img { display: block; width: 100%; height: auto; }
+.hero img { display: block; width: 100%; height: auto; max-height: 190px; object-fit: cover; }
 .paper { display: flex; justify-content: space-between; align-items: center; }
 .head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
 .report { display: flex; align-items: baseline; gap: 8px; margin-bottom: 14px; border-left: 4px solid var(--accent); }
